@@ -1,6 +1,7 @@
 import requests
 from bushelper.models import BusStop
 
+
 class OpenrouteDirections:
     """Makes request to Openroute directions service"""
 
