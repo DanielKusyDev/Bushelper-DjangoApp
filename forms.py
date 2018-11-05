@@ -20,6 +20,7 @@ class SearchForm(forms.Form):
         ('lsw', 'Świdnik'),
         ('lbn', 'Lublin')
     )
+
     direction = forms.ChoiceField(
         choices=directions,
         initial='lbn',
