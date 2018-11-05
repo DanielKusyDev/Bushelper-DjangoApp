@@ -287,7 +287,8 @@ class CarrierStopViewSet(viewsets.ModelViewSet):
 @api_view(['GET'])
 def api_root(request, format=None):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly,)
+                          IsOwnerOrReadOnly,
+                          )
     return Response({
         'busstops': reverse('busstops-list', request=request, format=format),
         'courses': reverse('courses-list', request=request, format=format),
