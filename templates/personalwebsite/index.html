@@ -1,0 +1,170 @@
+{% extends 'personalwebsite/templ.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div style="
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #f8f8f8;
+    background: url({% static 'img/intro/intro5.jpg' %}) no-repeat center center;
+    background-size: cover;
+    text-align: center;">
+    <div class="col-xs-12 text-center">
+        <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">Hello World!</h1>
+        <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s"> Z kodu jesteś i w kod sie obrócisz </h3>
+    </div>
+    <!-- /.container -->
+    <div class="col-xs-12 text-center abcen wow fadeIn">
+                <div class="button_down ">
+                    <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#start"> <img class="img_scroll" src="{% static 'img/icon/circle.png' %}" alt=""> </a>
+                </div>
+            </div>
+</div>
+    {% include 'personalwebsite/snippets/navbar.html' %}
+        <div id="start" class="content-section-a">
+        <div class="container">
+             <div class="row">
+                <div class="col-md-8 wow fadeInLeftBig"  data-animation-delay="200">
+                    <h4 class="section-heading">Hello World!</h4>
+                    <p class="lead">Nazywam się Daniel. Jakiś czas temu postanowiłem zanurkować w odmęty IT i jak się okazało pochłoneło mnie to do szczętu.
+                        Na co dzień studiuję informatykę na Uniwersytecie Marii Curie-Skłodowskiej na wydziale Matematyki, Fizyki i Informatyki.
+                        Ta strona jest moim osobistym polem treningowym oraz swego rodzaju wizytówką.
+					</p>
+				</div>
+                 <div class="col-md-4 pull-right wow fadeInRightBig">
+                    <img class="img-fluid rounded-circle" src="{% static 'img/profilowe.jpg'%}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- What is -->
+	<div id="whatis" class="content-section-b" style="border-top: 0">
+		<div class="container">
+			<div class="text-center wrap_title">
+				<h2>Czy jest tu coś fajnego?</h2>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4 wow fadeInDown text-center">
+				  <a href="https://github.com/DanielKusy97">
+                    <img class="rotate" src="{% static 'img/icon/github.png'%}" alt="Generic placeholder image">
+				  </a>
+                    <h3>GitHub</h3>
+				  <p class="lead">Można sobie wejść na mojego GitHuba czy tam coś. </p>
+				</div>
+				<div class="col-sm-4 wow fadeInDown text-center">
+				 <a href="https://www.deviantart.com/vrezt">
+                     <img  class="rotate" src="{% static 'img/icon/deviantart.png'%}" alt="Generic placeholder image">
+                 </a>
+                     <h3>DeviantArt</h3>
+				   <p class="lead"> Mam fajne grafiki na DeviantArcie.</p>
+				</div>
+                <div class="col-sm-4 wow fadeInDown text-center">
+				  <a href="#apki">
+                      <img  class="rotate"  src="{% static 'img/icon/laptop.svg'%}" alt="Generic placeholder image">
+				   </a><h3>Apki</h3>
+				   <p class="lead"> Stworzone przeze mnie aplikacje.</p>
+				</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+{#	<div id="screen" class="content-section-b">#}
+{#        <div class="container">#}
+{#          <div class="row" >#}
+{#			 <div class="col-md-6 col-md-offset-3 text-center wrap_title ">#}
+{#				<h2>Screeny z moich apek</h2>#}
+{#				<p class="lead" style="margin-top:0">Tutaj będą jakieś screeny moich aplikacji czy coś. Póki co są jacyś skejterze, jakieś coś, nie wiem.</p>#}
+{#			 </div>#}
+{#		  </div>#}
+{#		    <div class="row wow bounceInUp" >#}
+{#              <div id="owl-demo" class="owl-carousel">#}
+{##}
+{#				<a href="{% static 'img/slide/1.png'%}" class="image-link">#}
+{#					<div class="item">#}
+{#						<img  class="img-responsive img-rounded" src="{% static 'img/slide/1.png'%}" alt="Owl Image">#}
+{#					</div>#}
+{#				</a>#}
+{##}
+{#               <a href="{% static 'img/slide/2.png'%}" class="image-link">#}
+{#					<div class="item">#}
+{#						<img  class="img-responsive img-rounded" src="{% static 'img/slide/2.png'%}" alt="Owl Image">#}
+{#					</div>#}
+{#				</a>#}
+{##}
+{#				<a href="{% static 'img/slide/3.png'%}" class="image-link">#}
+{#					<div class="item">#}
+{#						<img  class="img-responsive img-rounded" src="{% static 'img/slide/3.png'%}" alt="Owl Image">#}
+{#					</div>#}
+{#				</a>#}
+{##}
+{#				<a href="{% static 'img/slide/1.png'%}" class="image-link">#}
+{#					<div class="item">#}
+{#						<img  class="img-responsive img-rounded" src="{% static 'img/slide/1.png'%}" alt="Owl Image">#}
+{#					</div>#}
+{#				</a>#}
+{##}
+{#               <a href="{% static 'img/slide/2.png'%}" class="image-link">#}
+{#					<div class="item">#}
+{#						<img  class="img-responsive img-rounded" src="{% static 'img/slide/2.png'%}" alt="Owl Image">#}
+{#					</div>#}
+{#				</a>#}
+{##}
+{#				<a href="{% static 'img/slide/3.png'%}" class="image-link">#}
+{#					<div class="item">#}
+{#						<img  class="img-responsive img-rounded" src="{% static 'img/slide/3.png'%}" alt="Owl Image">#}
+{#					</div>#}
+{#				</a>#}
+{#              </div>#}
+{#          </div>#}
+{#        </div>#}
+{#	</div>#}
+
+{#	<div class="morph-button wow pulse morph-button-inflow morph-button-inflow-1">#}
+{#        <button type="button">Nic nie robiący guzik.</button>#}
+{#    </div>#}
+
+	<!-- Apki -->
+
+    <div id="apki" class="content-section-a">
+        <div class="container">
+            <div class="text-center wrap_title">
+                    <h2>Aplikacje</h2>
+                    <p class="lead">Moje programistyczne wypociny</p>
+             </div>
+
+            <div class="row">
+                <div class="col-sm-6 block wow bounceIn text-center">
+					<div class="row">
+						<div class="col-sm-3 box-icon rotate">
+                            <a href="bushelper"><i class="fa fa-4x fa-bus"></i></a>
+						</div>
+						<div class="col-sm-8 box-ct">
+							<h3> BusyLSW </h3>
+							<p> Jeździsz autobusem do Lublina? BusyLSW to aplikacja na wzór jakdojade, która dynamicznie pomoże Ci
+                                wybrać odpowiedni przystanek oraz kurs.
+                            </p>
+						</div>
+				  </div>
+                </div>
+                <div class="col-sm-6 block wow bounceIn text-center">
+					<div class="row">
+						<div class="col-sm-3 box-icon rotate">
+                            <a href="bushelper"><i class="fa fa-4x fa-bus"></i></a>
+						</div>
+						<div class="col-sm-8 box-ct">
+							<h3> BusyLSW </h3>
+							<p> Jeździsz autobusem do Lublina? BusyLSW to aplikacja na wzór jakdojade, która dynamicznie pomoże Ci
+                                wybrać odpowiedni przystanek oraz kurs.
+                            </p>
+						</div>
+				  </div>
+
+    </div>
+
+{% endblock %}

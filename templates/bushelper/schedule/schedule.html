@@ -1,0 +1,9 @@
+{% extends 'personalwebsite/templ.html' %}
+
+{% block content %}
+
+{% for url in html_names %}
+        {% include url %}
+    {% endfor %}
+
+{% endblock %}
