@@ -7,6 +7,7 @@ django-debug-toolbar==1.11
 django-filter==2.0.0
 django-storages==1.7.1
 djangorestframework==3.9.0
+dropbox==9.3.0
 idna==2.8
 lxml==4.2.6
 Markdown==3.0.1
