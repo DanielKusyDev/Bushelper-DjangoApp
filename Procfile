@@ -1,1 +1,1 @@
-web: gunicorn PersonalDjangoProject.wsgi
+web: gunicorn dkusy.wsgi
