@@ -53,8 +53,9 @@ function renderHTML(data) {
     $("#id_mid_col").html(htmlString);
 }
 
-
-url = 'http://127.0.0.1:8000/bushelper/restapi/courses';
+// TODO heroku
+// url = 'http://127.0.0.1:8000/bushelper/restapi/courses';
+url = 'http://bushelper.herokuapp.com/bushelper/restapi/courses';
 let course_list_item = $(".course_list_item");
 let course_panel;
 

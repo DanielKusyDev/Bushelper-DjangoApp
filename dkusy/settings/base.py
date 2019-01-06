@@ -44,9 +44,9 @@ INSTALLED_APPS = [
     'storages'
 ]
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-# STATICFILES_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-# DROPBOX_OAUTH2_TOKEN = '8n-pMjAUy8AAAAAAAAAAg9EEIAevmcQhMQaHvC4xb-5GVgdIQYjBxp2Cpxp-ijnU'
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+STATICFILES_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = '8n-pMjAUy8AAAAAAAAAAg9EEIAevmcQhMQaHvC4xb-5GVgdIQYjBxp2Cpxp-ijnU'
 
 ROOT_URLCONF = 'dkusy.urls'
 

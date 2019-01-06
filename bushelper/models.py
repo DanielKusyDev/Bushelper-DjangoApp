@@ -1,5 +1,6 @@
 from django.db import models as m
 
+
 class Direction(m.Model):
     direction = m.CharField(max_length=3)
 

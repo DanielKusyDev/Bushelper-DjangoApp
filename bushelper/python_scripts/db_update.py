@@ -4,9 +4,12 @@ import pandas as pd
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup as bs
 import django
+
 django.setup()
 from bushelper.models import *
 from bushelper.utils import replace_types_gen
+
+from bushelper.python_scripts import db_operations as db
 
 
 def update_departures(hours):
@@ -42,7 +45,6 @@ def fremiks(url):
 
 
 def update_fremiks_courses(departures, types, stops, direction, carrier):
-
     def alias_gen(name, stop):
         for word in name:
             if word in stop:
@@ -54,7 +56,7 @@ def update_fremiks_courses(departures, types, stops, direction, carrier):
     db_stops = BusStop.objects.filter(direction=direction)
     print(direction)
     for db_stop in db_stops:
-        for departure, df_stop in zip(departures, df_stops):            # Pilnować, żeby alias zawierał sie w df_stop
+        for departure, df_stop in zip(departures, df_stops):  # Pilnować, żeby alias zawierał sie w df_stop
             if db_stop.fremiks_alias is not None:
                 length = len(db_stop.fremiks_alias.lower().split())
                 if length > 1:
@@ -106,8 +108,8 @@ def mpk():
         for stop_url in section:
             stop_url = stop_url.get('href')
             stop_url = main_url + stop_url.strip('./')
+            print(stop_url)
             stop_departures, direction, course_types, bus_stop = get_mpk_data(stop_url, line.name)
-
             lines_id = {
                 '055': 1,
                 '0N2': 2,
@@ -184,6 +186,7 @@ def get_mpk_data(url, line):
     for row in minutes:
         temp_hours_list = []
         for hour, minute in zip(hours, row):
+
             if minute != -1:
                 if isinstance(minute, list):
                     for m in minute:
@@ -192,6 +195,8 @@ def get_mpk_data(url, line):
                 else:
                     record = '%02d:%02d' % (hour, minute)
                     temp_hours_list.append(record)
+            else:
+                continue
         hours_list.append(np.array(temp_hours_list))
     hours_list = np.array(hours_list)
 
@@ -228,13 +233,13 @@ def update_mpk_courses(all_departures, all_directions, all_line_numbers, all_cou
 
 
 if __name__ == "__main__":
-    # db.reset_sequence("Course")
-    # Course.objects.all().delete()
-    # db.reset_sequence("Departure")
-    # Departure.objects.all().delete()
-    # fremiks('http://www.fremiks.pl/index.php/rozklad-jazdy/swidnik-witosa-lublin')
-    # fremiks('http://www.fremiks.pl/index.php/rozklad-jazdy/lublin-witosa-swidnik')
+    db.reset_sequence("Course")
+    Course.objects.all().delete()
+    db.reset_sequence("Departure")
+    Departure.objects.all().delete()
+    fremiks('http://www.fremiks.pl/index.php/rozklad-jazdy/swidnik-witosa-lublin')
+    fremiks('http://www.fremiks.pl/index.php/rozklad-jazdy/lublin-witosa-swidnik')
     mpk()
-    # pass
+    # get_mpk_data("http://mpk.lublin.pl/?przy=5582&lin=0N2", "0N2")
 # TODO są jakieś duble w nocnych
 # TODO ogarnąć te godziny w bazie
