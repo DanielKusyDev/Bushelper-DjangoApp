@@ -44,9 +44,19 @@ INSTALLED_APPS = [
     'storages'
 ]
 
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-STATICFILES_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = '8n-pMjAUy8AAAAAAAAAAg9EEIAevmcQhMQaHvC4xb-5GVgdIQYjBxp2Cpxp-ijnU'
+# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+# STATICFILES_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+# DROPBOX_OAUTH2_TOKEN = '8n-pMjAUy8AAAAAAAAAAg9EEIAevmcQhMQaHvC4xb-5GVgdIQYjBxp2Cpxp-ijnU'
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+STATICFILES_STORAGE = 'custom_storage.custom_azure.PublicAzureStorage'
+AZURE_ACCOUNT_NAME = "djangostorage"
+AZURE_ACCOUNT_KEY = "hLHJ2aeFszT3At++BoABlZnzdWKTX3/8bPNUj69XAiXG0rKLzxdv4Ds1FCeQvjeIHgqaqmDdEPQxTBOypZvEkw=="
+AZURE_CONTAINER = "djangostoragecontainer"
+# AZURE_SSL = True
+
+
+
+
 
 ROOT_URLCONF = 'dkusy.urls'
 

@@ -29,7 +29,7 @@ let tags = [];
 let origin = $('#id_origin');
 let destination = $('#id_destination');
 let direction = $("#id_direction");
-let url_origin = 'http://bushelper.herokuapp.com/bushelper/restapi/busstops';
+let url_origin = 'https://bushelper.herokuapp.com/bushelper/restapi/busstops';
 // TODO heroku
 // let url_origin = 'http://127.0.0.1:8000/bushelper/restapi/busstops';
 
