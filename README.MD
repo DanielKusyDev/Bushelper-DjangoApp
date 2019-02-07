@@ -19,6 +19,8 @@ The bushelper takes bus courses from database and returns best way of taking a b
 * [Django Rest Framework][rest-framework]
 * [Openroute Service][openroute] API Key
 
+###### Screens of an example ready web page.
+
 [rest-framework]:<https://github.com/encode/django-rest-framework>
 [openroute]: <https://openrouteservice.org/>
 
