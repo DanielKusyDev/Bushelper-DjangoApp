@@ -6,16 +6,12 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import Http404
 from django.shortcuts import render
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from bushelper.permissions import IsOwnerOrReadOnly
-from bushelper.utils.exceptions import *
-from bushelper.utils.openroute_api import OpenrouteDirections
-from bushelper.utils.misc import filtered_by_dest
-
+from bushelper.utils import *
 from .forms import SearchForm
 from .serializers import *
 
@@ -188,7 +184,6 @@ class CustomLocalizationView(LocalizationView):
 
             def __str__(self):
                 return self.name
-
         self.context['destination'] = Point(self.origin.longtitude, self.origin.latitude, self.origin.mpk_street)
         self.context['origin'] = Point(self.current_location[1], self.current_location[0], 'START')
         self.set_travel_duration(self.directions_api)
@@ -196,7 +191,7 @@ class CustomLocalizationView(LocalizationView):
     def set_travel_duration(self, directions):
         directions = json.loads(directions)
         travel_duration = directions['features'][0]['properties']['summary'][0]['duration']
-        self.travel_duration = int(travel_duration / 60 + 1)
+        self.travel_duration = int(travel_duration/60 + 1)
         self.context['x'] = self.travel_duration
 
     def get_travel_duration(self):
@@ -229,6 +224,7 @@ def search_engine_view(request):
 
 
 def search(request):
+
     if request.GET:
         if request.GET.get('coordinates'):
             custom_localization_view = CustomLocalizationView(request)
@@ -286,9 +282,6 @@ class CarrierStopViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly,
-                          )
     return Response({
         'busstops': reverse('busstops-list', request=request, format=format),
         'courses': reverse('courses-list', request=request, format=format),
