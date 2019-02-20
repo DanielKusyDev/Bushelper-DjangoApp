@@ -9,7 +9,8 @@ router.register('courses', views.CourseViewSet, 'courses_router')
 router.register('carrierstops', views.CarrierStopViewSet)
 
 urlpatterns = [
-    path('', views.search, name='search_engine'),
+    path('', views.SearchEngineView.as_view(), name='search_engine_view'),
+    path('directions/', views.DirectionsView.as_view(), name='directions_view'),
     path('restapi/', include(router.urls)),
 ]
 
