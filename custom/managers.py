@@ -75,11 +75,6 @@ def get_valid_courses_between_stops(origin, destination, direction):
 
 
 class CustomLocation(object):
-    """Klasa definiująca widok, wywoływany gdy użytkownik nie wybierze przystanku odjazdu, tylko poda swoją obecną
-    lokalizację. Instancja klasy parsuje obecną lokalizację pobraną z przeglądarki na typ odpowiedni dla
-    OpenrouteDirections API, oblicza dystans do najbliższego połączonego z miejscem docelowym przystanku, wysyła żądanie
-    API o pieszą drogą do przystanku i zwraca obliczone wartości oraz Geojson z wynikiem żądania."""
-
     def __init__(self):
         self.context = {}
 
@@ -98,11 +93,3 @@ class CustomLocation(object):
         directions_api = OpenrouteDirections(self.context['origin'], self.context['destination'])
         directions_api = directions_api.get_api_data(profile)
         return directions_api
-
-
-class DefinedLocalization(object):
-    """Klasa definiująca widok, wywoływany gdy użytkownik wybierze przystanek odjazdu 'na sztywno'. Wyszukuje dostępne
-        kursy, sortuje je, tworzy paginator i ustawia OpenRouteDirections API dla skryptu Leaflet. Jeżeli kursów nie ma, to
-        wysyła żądanie do API o drogę pieszą."""
-
-    pass
