@@ -10,11 +10,10 @@ router.register('carrierstops', views.CarrierStopViewSet)
 
 urlpatterns = [
     path('', views.SearchEngineView.as_view(), name='search_engine_view'),
-    path('directions/', views.DirectionsView.as_view(), name='directions_view'),
+    path('search/', views.search, name='search_view'),
     path('restapi/', include(router.urls)),
 ]
 
 urlpatterns += [
     path('api-auth/', include('rest_framework.urls')),
 ]
-

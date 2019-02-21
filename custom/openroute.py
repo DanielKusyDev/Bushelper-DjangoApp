@@ -1,4 +1,6 @@
 import requests
+
+from bushelper.custom.utils import Point
 from bushelper.models import *
 
 
@@ -22,18 +24,18 @@ class OpenrouteDirections:
     def get_parsed_coordinates(points):
         coordinates = []
         for point in points:
-            if isinstance(point, BusStop):
+            if isinstance(point, BusStop) or isinstance(point, Point):
                 long = str(point.longtitude)
                 lat = str(point.latitude)
                 full_coordinates = ",".join([long, lat])
                 coordinates.append(full_coordinates)
             elif isinstance(point, list):
-                full_coordinates = ','.join(map(str, [point[1], point[0]]))
+                full_coordinates = ','.join(map(str, [point[0], point[1]]))
                 coordinates.append(full_coordinates)
         return '|'.join(coordinates)
 
     def set_coordinates(self, origin, destination):
-        points = (origin, destination)
+        points = [origin, destination]
         self.coordinates = self.get_parsed_coordinates(points)
 
     def add_params(self, **kwargs):

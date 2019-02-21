@@ -31,7 +31,6 @@ class CarrierStopSerializer(serializers.ModelSerializer):
 
     def get_bus_stop(self, model):
         return [bus_stop for bus_stop in CarrierStopOrder.objects.filter(carrier_stop=model).order_by('order').values_list('bus_stop', flat=True)]
-
         # return [BusStop.objects.filter(pk=bus_stop).values_list('mpk_street', flat=True) for bus_stop in CarrierStopOrder.objects.filter(carrier_stop=model).order_by('order').values_list('bus_stop', flat=True)]
 
     class Meta:

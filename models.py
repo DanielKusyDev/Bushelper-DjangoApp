@@ -1,5 +1,6 @@
 from django.db import models as m
 
+
 class Direction(m.Model):
     direction = m.CharField(max_length=3)
 
@@ -15,7 +16,7 @@ class BusStop(m.Model):
     longtitude = m.FloatField()
 
     def __str__(self):
-        return self.mpk_street
+        return '%s' % self.mpk_street
 
     class Meta:
         ordering = ['mpk_street']

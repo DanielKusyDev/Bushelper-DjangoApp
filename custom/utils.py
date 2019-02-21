@@ -42,7 +42,7 @@ def filtered_by_dest(courses, origin, destination, direction):
             filtered_courses = courses.filter(carrier=cs.carrier)
         if filtered_courses:
             order_list = CarrierStopOrder.objects.filter(carrier_stop=cs).values_list('order', flat=True)
-            origin_order = CarrierStopOrder.objects.filter(carrier_stop=cs).filter(bus_stop=origin).values_list(
+            origin_order = CarrierStopOrder.objects.filter(carrier_stop=cs).filter(bus_stop__mpk_street__exact=origin).values_list(
                 'order',
                 flat=True).first()
             destination_order = CarrierStopOrder.objects.filter(carrier_stop=cs).filter(
@@ -54,3 +54,23 @@ def filtered_by_dest(courses, origin, destination, direction):
                 order_np = order_np[order_np > origin_order]
                 if destination_order in order_np:
                     yield filtered_courses
+
+
+class Point(object):
+    def __init__(self, longtitude, latitude, name):
+        self.longtitude = longtitude
+        self.latitude = latitude
+        self.name = name
+
+    def __str__(self):
+        return self.name
+
+
+def parse_coordinates(coordinates):
+    if isinstance(coordinates, str):
+        coordinates = coordinates.split(',')
+        coordinates[0], coordinates[1] = coordinates[1], coordinates[0]
+        coordinates = (float(coordinates[0]), float(coordinates[1]))
+    elif isinstance(coordinates, BusStop):
+        coordinates = (float(coordinates.longtitude), float(coordinates.latitude))
+    return coordinates
