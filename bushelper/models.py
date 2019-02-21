@@ -16,7 +16,7 @@ class BusStop(m.Model):
     longtitude = m.FloatField()
 
     def __str__(self):
-        return self.mpk_street
+        return '%s' % self.mpk_street
 
     class Meta:
         ordering = ['mpk_street']

@@ -106,7 +106,7 @@ def mpk():
         section = soup.find_all('a', href=re.compile('.przy.*lin.'))
         print(section)
         for stop_url in section:
-            stop_url = stop_url.get('href')
+            stop_url = stop_url.get()
             stop_url = main_url + stop_url.strip('./')
             print(stop_url)
             stop_departures, direction, course_types, bus_stop = get_mpk_data(stop_url, line.name)

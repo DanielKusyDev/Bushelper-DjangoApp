@@ -4,7 +4,7 @@
 {% block content %}
 <br>
 <div class='container'>
-    <form action="" autocomplete="off" method="get">
+    <form action="{% url 'search_view' %}" autocomplete="off" method="get">
         <div class="row" role="group">
             {{ form.origin }}
             <button id="geolocation_button" class="form-control col-md-1" type="button">

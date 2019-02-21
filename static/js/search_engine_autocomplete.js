@@ -9,7 +9,7 @@ function filterData(data) {
                     full_stop_name = data[i]['mpk_street'];
                 tags.push({label: full_stop_name, value: data[i]['mpk_street']});
             }
-        console.log(tags);
+        // console.log(tags);
         let len = data.length;
         origin.autocomplete({
             source: function(request, response) {
@@ -29,9 +29,9 @@ let tags = [];
 let origin = $('#id_origin');
 let destination = $('#id_destination');
 let direction = $("#id_direction");
-let url_origin = 'https://bushelper.herokuapp.com/bushelper/restapi/busstops';
+// let url_origin = 'https://bushelper.herokuapp.com/bushelper/restapi/busstops';
 // TODO heroku
-// let url_origin = 'http://127.0.0.1:8000/bushelper/restapi/busstops';
+let url_origin = 'http://127.0.0.1:8000/restapi/busstops';
 
 $.ajax({
     method: "GET",

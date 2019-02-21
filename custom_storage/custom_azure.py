@@ -1,5 +1,5 @@
 from storages.backends.azure_storage import AzureStorage
-from dkusy.settings.base import *
+from dkusy.settings.production import *
 
 
 class PublicAzureStorage(AzureStorage):

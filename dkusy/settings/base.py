@@ -6,7 +6,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'auj8%!#j4*appj^fr6=fd&gon3+gr=)bzfn3-_9d_udo2#r#k#')
+# SECRET_KEY = os.environ.get('auj8%!#j4*appj^fr6=fd&gon3+gr=)bzfn3-_9d_udo2#r#k#')
+SECRET_KEY = 'auj8%!#j4*appj^fr6=fd&gon3+gr=)bzfn3-_9d_udo2#r#k#'
 
 
 # Application definition
@@ -36,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Custom apps
-    'personalwebsite',
     'bushelper',
 
     # Packages, mini-apps etc
@@ -44,18 +44,7 @@ INSTALLED_APPS = [
     'storages'
 ]
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-# STATICFILES_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-# DROPBOX_OAUTH2_TOKEN = '8n-pMjAUy8AAAAAAAAAAg9EEIAevmcQhMQaHvC4xb-5GVgdIQYjBxp2Cpxp-ijnU'
-DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-STATICFILES_STORAGE = 'custom_storage.custom_azure.PublicAzureStorage'
-AZURE_ACCOUNT_NAME = "djangostorage"
-AZURE_ACCOUNT_KEY = "hLHJ2aeFszT3At++BoABlZnzdWKTX3/8bPNUj69XAiXG0rKLzxdv4Ds1FCeQvjeIHgqaqmDdEPQxTBOypZvEkw=="
-AZURE_CONTAINER = "djangostoragecontainer"
 # AZURE_SSL = True
-
-
-
 
 
 ROOT_URLCONF = 'dkusy.urls'

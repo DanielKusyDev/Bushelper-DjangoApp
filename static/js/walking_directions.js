@@ -3,8 +3,8 @@ origin_coords = origin_coords.split(',');
 destination_coords = destination_coords.split(',');
 origin_coords = [parseFloat(origin_coords[1]), parseFloat(origin_coords[0])];
 destination_coords = [parseFloat(destination_coords[1]), parseFloat(destination_coords[0])];
-console.log(origin_coords);
-console.log(destination_coords);
+// console.log(origin_coords);
+// console.log(destination_coords);
 let view = origin_coords;
 
 let zoom = 16;
