@@ -9,11 +9,11 @@ DATABASES = {
     }
 }
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-# STATICFILES_STORAGE = 'custom_storage.custom_azure.PublicAzureStorage'
-# AZURE_ACCOUNT_NAME = "djangostorage"
-# AZURE_ACCOUNT_KEY = "hLHJ2aeFszT3At++BoABlZnzdWKTX3/8bPNUj69XAiXG0rKLzxdv4Ds1FCeQvjeIHgqaqmDdEPQxTBOypZvEkw=="
-# AZURE_CONTAINER = "djangostoragecontainer"
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+STATICFILES_STORAGE = 'custom_storage.custom_azure.PublicAzureStorage'
+AZURE_ACCOUNT_NAME = "djangostorage"
+AZURE_ACCOUNT_KEY = "hLHJ2aeFszT3At++BoABlZnzdWKTX3/8bPNUj69XAiXG0rKLzxdv4Ds1FCeQvjeIHgqaqmDdEPQxTBOypZvEkw=="
+AZURE_CONTAINER = "djangostoragecontainer"
 
 import dj_database_url
 
