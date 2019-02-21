@@ -24,37 +24,46 @@ class SearchEngineView(TemplateView):
             return render(request, self.template_name, context)
 
 
-class DirectionsView(TemplateView):
-    template_name = 'bushelper/walking_directions.html'
-
-    def get(self, request, **kwargs):
-        if request.GET.get('coordinates'):
-            custom_localization = CustomLocalization()
-            c_context = custom_localization(request.GET)
-            if c_context['origin'] == c_context['destination']:
-                return render(request, self.template_name, c_context)
-            defined_localization = DefinedLocalization()
-            d_context = defined_localization(request.GET, c_context['origin'])
-            if defined_localization.template_name is None:
-                return render(request, self.template_name, d_context)
-
-            self.template_name = defined_localization.template_name
-            defined_localization.context['walking_directions_api'] = c_context['destinations_api']
-            defined_localization.context['travel_duration'] = c_context['travel_duration']
-            return render(request, self.template_name, d_context)
-        else:
-            defined_localization = DefinedLocalization()
-            context = defined_localization(request.GET)
-            if defined_localization.template_name is None:
-                return render(request, self.template_name, context)
-            self.template_name = defined_localization.template_name
-            return render(request, self.template_name, context)
+def search(request):
+    direction = request.GET.get('direction')
+    destination = BusStop.objects.get(mpk_street=request.GET.get('destination'), direction__direction=direction)
+    custom_location = CustomLocation()
+    if request.GET.get('coordinates'):
+        coordinates = request.GET.get('coordinates')
+        closest_stop = get_closest_valid_stop(coordinates, destination)
+        try:
+            courses = get_valid_courses_between_stops(closest_stop, destination, direction)
+            custom_location.context['courses'] = courses
+            paginator = Paginator(courses, 5)
+            page = request.GET.get('page')
+            custom_location.context['courses'] = paginator.get_page(page)
+            custom_location.set_essentials(origin=coordinates, destination=closest_stop, direction=direction)
+            custom_location.context['walking_directions_api'] = custom_location.get_directions('foot-walking')
+            custom_location.set_essentials(origin=closest_stop, destination=destination, direction=direction)
+            custom_location.context['directions_api'] = custom_location.get_directions('driving-car')
+            template_name = 'bushelper/regular_directions.html'
+        except NoCoursesAvailableError:
+            custom_location.set_essentials(origin=coordinates, destination=destination, direction=direction)
+            custom_location.context['directions_api'] = custom_location.get_directions('foot-walking')
+            template_name = 'bushelper/walking_directions.html'
+    else:
+        origin = BusStop.objects.get(mpk_street=request.GET.get('origin'), direction__direction=direction)
+        try:
+            courses = get_valid_courses_between_stops(origin, destination, direction)
+            custom_location.context['courses'] = courses
+            paginator = Paginator(courses, 5)
+            page = request.GET.get('page')
+            custom_location.context['courses'] = paginator.get_page(page)
+            custom_location.set_essentials(origin=origin, destination=destination, direction=direction)
+            custom_location.context['directions_api'] = custom_location.get_directions('driving-car')
+            template_name = 'bushelper/regular_directions.html'
+        except NoCoursesAvailableError:
+            raise Http404
+    context = custom_location.context
+    return render(request, template_name, context)
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    This viewset automatically provides `list` and `detail` actions.
-    """
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
@@ -64,7 +73,7 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         queryset = Course.objects.all()
-        id = self.request.query_params.get('id', )
+        id = self.request.query_params.get('id')
         if id is not None:
             queryset = queryset.filter(id=id)
         return queryset
