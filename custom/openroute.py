@@ -1,6 +1,7 @@
 import requests
 
-from apps.bushelper import Point
+from apps.bushelper.custom.utils import Point
+from apps.bushelper.models import BusStop
 
 
 class OpenrouteDirections:

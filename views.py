@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from rest_framework import viewsets
@@ -6,10 +7,10 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from apps.bushelper import SearchForm
-from apps.bushelper import BusStop, Course, CarrierStop
-from apps.bushelper import UserSerializer, CourseSerializer, BusStopSerializer, CarrierStopSerializer
-
+from apps.bushelper.forms import SearchForm
+from apps.bushelper.models import BusStop, Course, CarrierStop
+from apps.bushelper.serializers import UserSerializer, CourseSerializer, BusStopSerializer, CarrierStopSerializer
+from apps.bushelper.custom.managers import *
 
 class SearchEngineView(TemplateView):
     template_name = 'bushelper/search_engine.html'
