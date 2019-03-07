@@ -34,13 +34,6 @@ class Carrier(m.Model):
         return self.name
 
 
-class Departure(m.Model):
-    hour = m.TimeField()
-
-    def __str__(self):
-        return str(self.hour.strftime("%H:%M"))
-
-
 class Line(m.Model):
     name = m.CharField(max_length=8)
     url = m.URLField()
@@ -50,12 +43,12 @@ class Line(m.Model):
 
 
 class Course(m.Model):
+    departure = m.TimeField(null=False)
     course_type = m.CharField(max_length=7, unique=False, null=False)
     line = m.ForeignKey(Line, on_delete=m.CASCADE, related_name='course_line_fk', null=True, blank=True)
     direction = m.ForeignKey(Direction, on_delete=m.CASCADE, related_name='course_direction_fk')
     carrier = m.ForeignKey(Carrier, on_delete=m.CASCADE, related_name='course_carrier_fk')
     bus_stop = m.ForeignKey(BusStop, on_delete=m.CASCADE, related_name='course_stop_fk')
-    departure = m.ForeignKey(Departure, on_delete=m.CASCADE, related_name='course_departure_fk')
 
     class Meta:
         ordering = ['pk']

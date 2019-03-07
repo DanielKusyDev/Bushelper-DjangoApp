@@ -4,7 +4,7 @@ import django
 django.setup()
 import pandas as pd
 import numpy as np
-from apps.bushelper import BusStop, Direction
+from apps.bushelper.models import BusStop, Direction
 from urllib.request import urlopen
 from urllib.parse import *
 from bs4 import BeautifulSoup as bs

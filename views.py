@@ -12,6 +12,7 @@ from apps.bushelper.models import BusStop, Course, CarrierStop
 from apps.bushelper.serializers import UserSerializer, CourseSerializer, BusStopSerializer, CarrierStopSerializer
 from apps.bushelper.custom.managers import *
 
+
 class SearchEngineView(TemplateView):
     template_name = 'bushelper/search_engine.html'
 

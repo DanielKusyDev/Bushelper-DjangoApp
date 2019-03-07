@@ -1,5 +1,11 @@
+import json
+from urllib.request import urlopen
+
+from django.contrib.staticfiles.templatetags.staticfiles import static
+
+from apps.bushelper.custom.email_management import send_email
 from apps.bushelper.custom.scrapers import FremiksScraper, MpkScraper, MpkSoup
-from apps.bushelper import Line, Carrier, BusStop, Course, Direction
+from apps.bushelper.models import Line, Carrier, BusStop, Course, Direction
 
 
 def get_fremiks_schedules():
@@ -37,12 +43,12 @@ def get_mpk_schedules():
                 if email_sent:
                     continue
                 email_sent = True
-                # request = urlopen(static('json/emails.json'))
-                # email_json = json.loads(request.read())['bus_stops_changed']
-                # email_context = {}
-                # email_context['subject'] = email_json['subject']
-                # email_context['body'] = email_json['body'] + '<br>' + str(line) + "<br><br>" + email_json['footer']
-                # send_email(receiver='daniel.kusy97@gmail.com', context=email_context)
+                request = urlopen(static('json/emails.json'))
+                email_json = json.loads(request.read())['bus_stops_changed']
+                email_context = {}
+                email_context['subject'] = email_json['subject']
+                email_context['body'] = email_json['body'] + '<br>' + str(line) + "<br><br>" + email_json['footer']
+                send_email(receiver='daniel.kusy97@gmail.com', context=email_context)
                 # todo erase harcoded email address. Firstly send emails to all superusers, but later create user subapp and set to moderators
 
     return carrier, schedules
@@ -66,7 +72,11 @@ if __name__ == '__main__':
                     for c_type in schedules[carrier][line][direction][bus_stop]:
                         for departure in schedules[carrier][line][direction][bus_stop][c_type]:
                             i = i+1
-                            course = Course(course_type=c_type, bus_stop=bus_stop, carrier=carrier, direction=Direction.objects.get(direction__iexact=direction), line=line, departure=departure)
+                            course = Course(course_type=c_type,
+                                            bus_stop=bus_stop,
+                                            carrier=carrier,
+                                            direction=Direction.objects.get(direction__iexact=direction),
+                                            line=line,
+                                            departure=departure)
                             course.save()
 
-    print(i)
