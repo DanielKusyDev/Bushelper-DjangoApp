@@ -1,7 +1,6 @@
 import requests
 
-from bushelper.custom.utils import Point
-from bushelper.models import *
+from apps.bushelper import Point
 
 
 class OpenrouteDirections:
@@ -9,7 +8,8 @@ class OpenrouteDirections:
 
     def __init__(self, origin, destination):
         self.url = 'https://api.openrouteservice.org/directions'
-        self.api_key = open('/home/daniel/openroute_api').read()
+        # self.api_key = open('/home/daniel/openroute_api').read()
+        self.api_key = '5b3ce3597851110001cf6248ef4bb898eeb44f51896bc7d885e18685'  # TODO to nie mzoe byc na sztywno
         self.format = "geojson"
         self.coordinates = None
         self.params = {

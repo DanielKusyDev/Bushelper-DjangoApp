@@ -48,8 +48,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('order', models.PositiveIntegerField()),
-                ('bus_stop', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carrierstoporder_busstop_fk', to='bushelper.BusStop')),
-                ('carrier_stop', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carrierstoporder_carrierstop_fk', to='bushelper.CarrierStop')),
+                ('bus_stop', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carrierstoporder_busstop_fk', to='apps.bushelper.BusStop')),
+                ('carrier_stop', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carrierstoporder_carrierstop_fk', to='apps.bushelper.CarrierStop')),
             ],
         ),
         migrations.CreateModel(
@@ -57,8 +57,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('course_type', models.CharField(max_length=7)),
-                ('bus_stop', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='course_stop_fk', to='bushelper.BusStop')),
-                ('carrier', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='course_carrier_fk', to='bushelper.Carrier')),
+                ('bus_stop', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='course_stop_fk', to='apps.bushelper.BusStop')),
+                ('carrier', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='course_carrier_fk', to='apps.bushelper.Carrier')),
             ],
             options={
                 'ordering': ['pk'],
@@ -89,41 +89,41 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='course',
             name='departure',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='course_departure_fk', to='bushelper.Departure'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='course_departure_fk', to='apps.bushelper.Departure'),
         ),
         migrations.AddField(
             model_name='course',
             name='direction',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='course_direction_fk', to='bushelper.Direction'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='course_direction_fk', to='apps.bushelper.Direction'),
         ),
         migrations.AddField(
             model_name='course',
             name='line',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='course_line_fk', to='bushelper.Line'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='course_line_fk', to='apps.bushelper.Line'),
         ),
         migrations.AddField(
             model_name='carrierstop',
             name='bus_stop',
-            field=models.ManyToManyField(related_name='carrierstop_busstop_fk', through='bushelper.CarrierStopOrder', to='bushelper.BusStop'),
+            field=models.ManyToManyField(related_name='carrierstop_busstop_fk', through='apps.bushelper.CarrierStopOrder', to='apps.bushelper.BusStop'),
         ),
         migrations.AddField(
             model_name='carrierstop',
             name='carrier',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carrierstop_carrier_fk', to='bushelper.Carrier'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carrierstop_carrier_fk', to='apps.bushelper.Carrier'),
         ),
         migrations.AddField(
             model_name='carrierstop',
             name='direction',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carrierstop_direction_fk', to='bushelper.Direction'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='carrierstop_direction_fk', to='apps.bushelper.Direction'),
         ),
         migrations.AddField(
             model_name='carrierstop',
             name='line',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='carrierstop_line_fk', to='bushelper.Line'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='carrierstop_line_fk', to='apps.bushelper.Line'),
         ),
         migrations.AddField(
             model_name='busstop',
             name='direction',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='busstop_direction_fk', to='bushelper.Direction'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='busstop_direction_fk', to='apps.bushelper.Direction'),
         ),
     ]

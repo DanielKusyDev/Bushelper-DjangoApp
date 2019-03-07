@@ -1,6 +1,4 @@
-import requests
 import numpy as np
-from bushelper.models import *
 
 
 def replace_types_gen(types):
