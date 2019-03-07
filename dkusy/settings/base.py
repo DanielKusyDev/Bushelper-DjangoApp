@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Custom apps
-    'bushelper',
+    'apps.bushelper',
 
     # Packages, mini-apps etc
     'rest_framework',

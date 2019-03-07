@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3b2b949-3950-41d8-8bbc-1acf883d5216" name="Default Changelist" comment="" />
+    <list default="true" id="a3b2b949-3950-41d8-8bbc-1acf883d5216" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/custom/managers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/custom/openroute.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/custom/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/permissions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/python_scripts/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/python_scripts/db_operations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/python_scripts/db_update.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/templatetags/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/templatetags/custom_tags.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bushelper/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dkusy/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/dkusy/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dkusy/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dkusy/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bushelper/regular_directions.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/regular_directions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bushelper/search_engine.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/search_engine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bushelper/snippets/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bushelper/snippets/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bushelper/templ.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/templ.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bushelper/walking_directions.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/walking_directions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/http_errors/bad_request_400.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/http_errors/bad_request_400.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/http_errors/not_found_404.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/http_errors/not_found_404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/http_errors/server_error_500.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/http_errors/server_error_500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/temp.html" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,9 +185,39 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-1127285777">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="2" />
+          <entry key="py" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="2" />
+          <entry key="Python" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/footer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -228,6 +292,7 @@
         <option value="$PROJECT_DIR$/static/js/search_result.js" />
         <option value="$PROJECT_DIR$/dkusy/settings/production.py" />
         <option value="$PROJECT_DIR$/static/js/search_engine_autocomplete.js" />
+        <option value="$PROJECT_DIR$/apps/bushelper/custom/scrapers.py" />
       </list>
     </option>
   </component>
@@ -238,7 +303,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="801" />
+    <option name="y" value="-1" />
     <option name="width" value="799" />
     <option name="height" value="873" />
   </component>
@@ -281,42 +346,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="dkusy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dkusy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dkusy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dkusy" type="462c0819:PsiDirectoryNode" />
-              <item name="custom_storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dkusy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dkusy" type="462c0819:PsiDirectoryNode" />
-              <item name="dkusy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dkusy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dkusy" type="462c0819:PsiDirectoryNode" />
-              <item name="dkusy" type="462c0819:PsiDirectoryNode" />
-              <item name="settings" type="462c0819:PsiDirectoryNode" />
+              <item name="dkusy-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dkusy-webapp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dkusy/settings/__init__.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../dkusy" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/bushelper/templates" />
+      <recent name="$PROJECT_DIR$/apps" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/bushelper" />
+      <recent name="$PROJECT_DIR$/bushelper" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -404,12 +463,12 @@
     <frame x="0" y="-1" width="1600" height="874" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.1962677" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1988417" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32977304" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.328877" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.328877" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.32977304" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -551,77 +610,61 @@
           <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/views.py</url>
+          <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
           <line>45</line>
           <option name="timeStamp" value="349" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/views.py</url>
+          <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
           <line>46</line>
           <option name="timeStamp" value="350" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/views.py</url>
+          <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
           <line>47</line>
           <option name="timeStamp" value="351" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/custom/managers.py</url>
-          <line>19</line>
+          <url>file://$PROJECT_DIR$/apps/bushelper/custom/managers.py</url>
+          <line>16</line>
           <option name="timeStamp" value="365" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/custom/managers.py</url>
-          <line>20</line>
+          <url>file://$PROJECT_DIR$/apps/bushelper/custom/managers.py</url>
+          <line>17</line>
           <option name="timeStamp" value="366" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/custom/managers.py</url>
-          <line>21</line>
+          <url>file://$PROJECT_DIR$/apps/bushelper/custom/managers.py</url>
+          <line>18</line>
           <option name="timeStamp" value="367" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/custom/managers.py</url>
-          <line>22</line>
+          <url>file://$PROJECT_DIR$/apps/bushelper/custom/managers.py</url>
+          <line>19</line>
           <option name="timeStamp" value="368" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/custom/managers.py</url>
-          <line>23</line>
+          <url>file://$PROJECT_DIR$/apps/bushelper/custom/managers.py</url>
+          <line>20</line>
           <option name="timeStamp" value="369" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/custom/managers.py</url>
-          <line>25</line>
+          <url>file://$PROJECT_DIR$/apps/bushelper/custom/managers.py</url>
+          <line>22</line>
           <option name="timeStamp" value="370" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bushelper/custom/managers.py</url>
-          <line>26</line>
+          <url>file://$PROJECT_DIR$/apps/bushelper/custom/managers.py</url>
+          <line>23</line>
           <option name="timeStamp" value="371" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/conf/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bushelper/dupa" />
-    <entry file="file://$PROJECT_DIR$/bushelper/asd.py" />
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/template/library.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bushelper/templatetags/url_tags.py" />
-    <entry file="file://$PROJECT_DIR$/bushelper/templatetags/custom_tags.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/templatetags/custom_tags.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
@@ -705,7 +748,7 @@
     <entry file="file://$PROJECT_DIR$/templates/temp.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/bushelper/urls.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
@@ -732,24 +775,17 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/bushelper/mixins.py" />
-    <entry file="file://$PROJECT_DIR$/bushelper/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bushelper/permissions.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/permissions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bushelper/apps.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/bushelper/admin.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
@@ -763,7 +799,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bushelper/serializers.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
@@ -784,27 +820,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bushelper/custom/managers.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/custom/managers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1215">
           <caret line="91" column="86" selection-start-line="91" selection-start-column="86" selection-end-line="91" selection-end-column="86" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1550709785968" expanded="true" signature="238:241" ph="..." />
-            <marker date="1550709785968" expanded="true" signature="2839:2841" ph="..." />
-            <marker date="1550709785968" expanded="true" signature="2841:2843" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bushelper/custom/utils.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/custom/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
           <caret line="71" column="71" selection-start-line="71" selection-start-column="71" selection-end-line="71" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bushelper/custom/openroute.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/custom/openroute.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
@@ -821,7 +854,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bushelper/views.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
@@ -852,9 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -876,9 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-          <folding>
-            <element signature="e#9#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -893,9 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding>
-            <element signature="e#9#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -910,6 +934,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bushelper/templates/bushelper/snippets/footer.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/custom/scrapers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/custom/email_management.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
