@@ -60,7 +60,6 @@ def get_valid_courses_between_stops(origin, destination, direction):
 
 
     course_lists = [result for result in filtered_by_dest(courses, origin, destination, direction)]
-
     if not course_lists:
         raise NoCoursesAvailableError
     else:

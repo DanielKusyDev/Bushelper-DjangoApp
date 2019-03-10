@@ -25,9 +25,9 @@ class SearchEngineView(TemplateView):
     def get(self, request, **kwargs):
         if not request.GET:
             form = SearchForm
-            context = {
-                'form': form
-            }
+            context = {'form': form}
+            if request.user is not None:
+                context['user'] = request.user
             return render(request, self.template_name, context)
 
 
