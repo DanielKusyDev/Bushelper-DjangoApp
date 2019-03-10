@@ -1,5 +1,7 @@
 import numpy as np
 
+from apps.bushelper.models import CarrierStop, CarrierStopOrder, BusStop
+
 
 def replace_types_gen(types):
     for t in types:

@@ -5,6 +5,7 @@ from django.db.models import Q
 
 from .openroute import *
 from .utils import *
+from apps.bushelper.models import *
 
 
 def get_closest_valid_stop(coordinates, destination):
@@ -53,9 +54,9 @@ def get_valid_courses_between_stops(origin, destination, direction):
                                                    course_type__contains=searched_type).order_by('departure__hour')
 
     courses = unfiltered_courses.filter(
-        Q(departure__hour__hour__gt=datetime.now().hour) |
-        Q(departure__hour__hour=datetime.now().hour,
-          departure__hour__minute__gte=datetime.now().minute))
+        Q(departure__hour__gt=datetime.now().hour) |
+        Q(departure__hour=datetime.now().hour,
+          departure__minute__gte=datetime.now().minute))
 
 
     course_lists = [result for result in filtered_by_dest(courses, origin, destination, direction)]

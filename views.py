@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
+from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from rest_framework import viewsets
@@ -8,13 +9,18 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 from apps.bushelper.forms import SearchForm
-from apps.bushelper.models import BusStop, Course, CarrierStop
 from apps.bushelper.serializers import UserSerializer, CourseSerializer, BusStopSerializer, CarrierStopSerializer
 from apps.bushelper.custom.managers import *
 
+TEMPLATE_PREFIX = 'bushelper/templates/bushelper/'
+
+
+def get_template_name(path):
+    return TEMPLATE_PREFIX+path
+
 
 class SearchEngineView(TemplateView):
-    template_name = 'bushelper/search_engine.html'
+    template_name = get_template_name('search_engine.html')
 
     def get(self, request, **kwargs):
         if not request.GET:
@@ -42,11 +48,11 @@ def search(request):
             custom_location.context['walking_directions_api'] = custom_location.get_directions('foot-walking')
             custom_location.set_essentials(origin=closest_stop, destination=destination, direction=direction)
             custom_location.context['directions_api'] = custom_location.get_directions('driving-car')
-            template_name = 'bushelper/regular_directions.html'
+            template_name = get_template_name('regular_directions.html')
         except NoCoursesAvailableError:
             custom_location.set_essentials(origin=coordinates, destination=destination, direction=direction)
             custom_location.context['directions_api'] = custom_location.get_directions('foot-walking')
-            template_name = 'bushelper/walking_directions.html'
+            template_name = get_template_name('walking_directions.html')
     else:
         origin = BusStop.objects.get(mpk_street=request.GET.get('origin'), direction__direction=direction)
         try:
@@ -57,7 +63,7 @@ def search(request):
             custom_location.context['courses'] = paginator.get_page(page)
             custom_location.set_essentials(origin=origin, destination=destination, direction=direction)
             custom_location.context['directions_api'] = custom_location.get_directions('driving-car')
-            template_name = 'bushelper/regular_directions.html'
+            template_name = get_template_name('regular_directions.html')
         except NoCoursesAvailableError:
             raise Http404
     context = custom_location.context
