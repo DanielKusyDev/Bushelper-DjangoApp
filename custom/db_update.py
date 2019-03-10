@@ -1,4 +1,3 @@
-import json
 from urllib.request import urlopen
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
@@ -6,6 +5,14 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from apps.bushelper.custom.email_management import send_email
 from apps.bushelper.custom.scrapers import FremiksScraper, MpkScraper, MpkSoup
 from apps.bushelper.models import Line, Carrier, BusStop, Course, Direction
+from django.db import connection
+import json
+
+
+def refresh_all_id():
+    table = 'bushelper_course'
+    with connection.cursor() as cursor:
+        cursor.execute("UPDATE sqlite_sequence SET seq=0 WHERE name LIKE %s", [table])
 
 
 def get_fremiks_schedules():
@@ -53,16 +60,14 @@ def get_mpk_schedules():
 
     return carrier, schedules
 
-
 if __name__ == '__main__':
+    refresh_all_id()
     schedules = {}
     carrier, schedule = get_fremiks_schedules()
     schedules[carrier] = schedule
     carrier, schedule = get_mpk_schedules()
     schedules[carrier] = schedule
-    #todo ogarnąć wyjatki na trasie lublin-swidnik ale odbywajace sie juz w samym swidniku
-    print(schedules)
-
+    # todo lbn-lsw courses does not appear if you want to take bus from lsw to lsw
     Course.objects.all().delete()
     i = 0
     for carrier in schedules:
@@ -79,4 +84,3 @@ if __name__ == '__main__':
                                             line=line,
                                             departure=departure)
                             course.save()
-

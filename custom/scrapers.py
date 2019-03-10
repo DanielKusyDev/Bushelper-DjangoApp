@@ -159,25 +159,27 @@ class MpkScraper(Scraper):
         course_types = [t for t in proper_course_types(course_types)]
         schedule = {}
         for single_table, c_type in zip(tables, course_types):
-            departures = self.arrange_data(single_table)
+            departures = self.arrange_data(single_table, soup)
             schedule[c_type] = departures
         return schedule
 
-    def arrange_data(self, table):
+    def arrange_data(self, table, soup):
         table = np.array(table)
         departures = []
         shitty_mpk_programmer_condition = re.compile(r'\..')
         for hour, minutes in zip(table[0, 1:], table[1, 1:]):
             if shitty_mpk_programmer_condition.search(str(hour)):
                 continue
-            minutes = str(minutes)
+            minutes = str(minutes).lower()
             hour = str(hour)
             if self.direction.direction == 'lbn':
+                minutes = re.sub(r'[a-z]', '', minutes)
                 if len(minutes) % 2 != 0:
                     minutes = '0' + minutes
-                minutes = re.sub(r'[a-z]', '', minutes)
                 minutes = re.findall(r'..?', minutes)
                 for minute in minutes:
+                    if minute == '  ':
+                        minute = soup.find('b', {'class': 'najblizszy_odjazd'}).get_text()
                     departures.append(str(hour + ':' + minute))
             else:
                 for pos in re.finditer(r'[b-z]', minutes):
