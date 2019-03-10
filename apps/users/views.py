@@ -1,18 +1,29 @@
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views import View
 from django.contrib.auth import logout, get_user_model, login
 from django.utils.translation import ugettext_lazy as _
+from django.views.generic import DetailView
+
 from apps.users.forms import LoginForm
-from dkusy import settings
+from apps.users.models import Profile
 
 PREFIX_TEMPLATE = 'users/templates/'
 
 
 def get_template_name(name):
     return PREFIX_TEMPLATE + name
+
+
+class ProfileView(DetailView):
+    template_name = get_template_name('profile_detail.html')
+    queryset = Profile.objects.all()
+
+    def get_object(self, **kwargs):
+        username = self.kwargs.get("username")
+        return get_object_or_404(Profile, user=get_user_model().objects.get(username=username))
 
 
 class CreateUser(View):

@@ -7,7 +7,8 @@ from django.db.models.signals import post_save
 
 class Profile(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=CASCADE)
-    description = models.CharField(max_length=100, default='')
+    avatar = models.ImageField(null=True, blank=True)
+    description = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.user.username
