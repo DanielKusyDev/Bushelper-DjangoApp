@@ -1,11 +1,15 @@
 {% load staticfiles %}
 
 <nav class="navbar navbar-expand-lg navbar-default fixed-top">
-    <a class="navbar-brand nav-item ml-auto" href="#"><img src="{% static 'favicon.ico' %}" class="rounded-circle" style="height: 5%"></a>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    {% if user.is_authenticated %}
+        <a class="navbar-brand nav-item ml-auto"><img src="{% static 'favicon.ico' %}" class="rounded-circle" style="height: 5%"></a>
+    {% else %}
+        <a href="{% url 'users:login' %}"><button type="button" class="btn btn-primary">Zaloguj</button></a>
+    {% endif %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#start">Start <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="">Start</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#whatis">Co to jest?</a>
