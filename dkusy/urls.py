@@ -4,7 +4,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.bushelper.urls')),
+    path('', include('apps.bushelper.urls'), name='bushelper'),
+    path('', include('apps.users.urls'), name='users'),
 ]
 
 if settings.DEBUG:

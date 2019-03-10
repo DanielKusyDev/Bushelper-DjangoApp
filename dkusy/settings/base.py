@@ -37,11 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Custom apps
-    'apps.bushelper',
+
 
     # Packages, mini-apps etc
     'rest_framework',
-    'storages'
+    'storages',
+
+    'apps.bushelper',
+    'apps.users'
 ]
 
 # AZURE_SSL = True
@@ -81,7 +84,6 @@ DATABASES = {
 
 
 # Password validation
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
