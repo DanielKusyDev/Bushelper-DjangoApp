@@ -1,5 +1,7 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views import View
@@ -17,7 +19,7 @@ def get_template_name(name):
     return PREFIX_TEMPLATE + name
 
 
-class ProfileView(DetailView):
+class ProfileView(LoginRequiredMixin, DetailView):
     template_name = get_template_name('profile_detail.html')
     queryset = Profile.objects.all()
 
@@ -63,6 +65,8 @@ class AuthenticationView(View):
         user = form.authenticate_user()
         if user is not None:
             login(request, user)
+            if form.next:
+                return redirect(form.next)
             return redirect(reverse('bushelper:search_engine_view'))
         return render(request, self.template_name, context={'form': form, 'errors': {'auth_error': _('Nieprawidłowe dane logowania')}}, status=401)
 

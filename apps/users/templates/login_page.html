@@ -5,11 +5,16 @@
     <title>Title</title>
 </head>
 <body>
+<br><br>
+
+{{ request.GET.next }}
 
 <form method="post" action="{% url 'users:login' %}">
-    <p>Username: <input type="text" name="username"></p>
-    <p>Password: <input type="password" name="password"></p>
+    <p>Username: {{ form.username }}</p>
+    <p>Password: {{ form.password }}</p>
+    <input type="hidden" name="next" value="{% if request.GET.next %}{{ request.GET.next }}{% else %}{% endif %}">
     <p>Login: <input type="submit"></p>
+    <p>Nie masz konta? <a href="{% url 'users:register' %}">Zarejestruj</a></p>
     {% csrf_token %}
 </form>
 
