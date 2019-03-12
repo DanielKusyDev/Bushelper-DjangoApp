@@ -1,0 +1,69 @@
+{% extends 'users/templates/users/index.html' %}
+
+{% block content %}
+
+        <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <form class="form-signin" method="post" action="{% url 'users:register' %}">
+            {% csrf_token %}
+                <span id="reauth-email" class="reauth-email"></span>
+
+                <input type="text" id="{{ form.username.id_for_label }}" placeholder="{{ form.username.label }}"
+                       name="{{ field.name }}" class="input_field form-control" required autofocus>
+
+                <input type="password" id="{{ form.password1.id_for_label }}" name="{{ form.password1.name }}"
+                       placeholder="{{ form.password1.label }}" class="input_field form-control" required>
+
+                <input type="password" id="{{ form.password2.id_for_label }}" name="{{ form.password2.name }}"
+                       placeholder="{{ form.password2.label }}" class="input_field form-control" required>
+
+                <input type="hidden" id="{{ form.next.id_for_label }}" name="{{ form.next.name }}"
+                       value="{% if request.GET.next %}{{ request.GET.next }}{% else %}none{% endif %}">
+
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Zarejestruj</button>
+            </form>
+            <a href="{% url 'users:login' %}" class="forgot-password">
+                Masz juz konto? <span class="bold"> Zaloguj się </span>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}
+{##}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Rejestracja</title>#}
+{#</head>#}
+{#<body>#}
+{#{% if messages %}#}
+{#<ul class="messages">#}
+{#    {% for message in messages %}#}
+{#    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+{#{% endif %}#}
+{#<form method="post" action="{% url 'users:register' %}">#}
+{#    {% for field in form %}#}
+{#        <p>#}
+{#        {{ field.label_tag }}#}
+{#        {{ field }}#}
+{#        </p>#}
+{#    {% endfor %}#}
+{#    {% csrf_token %}#}
+{#    <input type="submit" value="Wyślij">#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{##}

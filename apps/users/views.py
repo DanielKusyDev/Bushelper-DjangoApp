@@ -1,5 +1,4 @@
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, get_object_or_404
@@ -12,7 +11,7 @@ from django.views.generic import DetailView
 from apps.users.forms import LoginForm
 from apps.users.models import Profile
 
-PREFIX_TEMPLATE = 'users/templates/'
+PREFIX_TEMPLATE = 'users/templates/users/'
 
 
 def get_template_name(name):
@@ -32,7 +31,8 @@ class CreateUser(View):
     http_method_names = ['get', 'post']
 
     def get(self, request):
-        return render(request, get_template_name('add_user.html'), context={'form': UserCreationForm()})
+        form = UserCreationForm()
+        return render(request, get_template_name('add_user.html'), context={'form': form})
 
     def post(self, request):
         user = UserCreationForm(request.POST)
@@ -65,8 +65,8 @@ class AuthenticationView(View):
         user = form.authenticate_user()
         if user is not None:
             login(request, user)
-            if form.next:
-                return redirect(form.next)
+            if form.cleaned_data.get('next') != 'none': # todo UWAŻAĆ ZEBY DODAC DO WYJATKOW NAZW UZYTKOWNIKOW KTORYCH NIE MOZNA UZYC
+                return redirect(form.cleaned_data.get('next'))
             return redirect(reverse('bushelper:search_engine_view'))
         return render(request, self.template_name, context={'form': form, 'errors': {'auth_error': _('Nieprawidłowe dane logowania')}}, status=401)
 

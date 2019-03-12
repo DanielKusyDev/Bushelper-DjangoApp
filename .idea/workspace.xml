@@ -2,21 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3b2b949-3950-41d8-8bbc-1acf883d5216" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0285298a-a672-4ffe-b620-f9f8633c2eb9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/42a672fd-f384-400b-ade8-c99e4bfd6465.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4e044e32-d230-4922-b5d0-80b67f87b13b.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/users/templates/users/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/users/templates/users/login_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/users/templates/users/snippets/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/users/templates/users/snippets/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffa0ffa4-92f2-483b-8c34-8d2d30712544.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dkusy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dkusy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/bushelper" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/templ.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/templ.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/search_engine.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/templates/bushelper/search_engine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/bushelper/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/bushelper/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/templates/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/templates/login_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/templates/add_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/templates/users/add_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/templates/login_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/templates/profile_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/templates/users/profile_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dkusy/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/dkusy/settings/base.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -161,12 +162,14 @@
     <session id="-1127285777">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.58" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -181,20 +184,22 @@
           <entry key="bushelper_departure" value="2" />
           <entry key="bushelper_direction" value="5" />
           <entry key="bushelper_line" value="1" />
+          <entry key="css" value="3" />
           <entry key="gitginore" value="3" />
           <entry key="gitignore" value="3" />
-          <entry key="html" value="29" />
-          <entry key="py" value="179" />
+          <entry key="html" value="45" />
+          <entry key="py" value="207" />
           <entry key="sql" value="19" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CSS" value="3" />
           <entry key="Database Element" value="32" />
-          <entry key="HTML" value="29" />
+          <entry key="HTML" value="45" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="179" />
+          <entry key="Python" value="207" />
           <entry key="Scratch" value="19" />
         </counts>
       </usages-collector>
@@ -202,18 +207,20 @@
         <counts>
           <entry key="Django Console" value="590" />
           <entry key="cell" value="3" />
+          <entry key="css" value="115" />
           <entry key="dummy" value="1" />
           <entry key="gitignore" value="9" />
-          <entry key="html" value="1484" />
-          <entry key="py" value="7458" />
+          <entry key="html" value="3240" />
+          <entry key="py" value="8075" />
           <entry key="sql" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1484" />
+          <entry key="CSS" value="115" />
+          <entry key="HTML" value="3240" />
           <entry key="PLAIN_TEXT" value="10" />
-          <entry key="Python" value="8048" />
+          <entry key="Python" value="8665" />
           <entry key="SQL" value="22" />
           <entry key="Scratch" value="47" />
         </counts>
@@ -226,57 +233,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/users/templates/login_page.html">
+        <entry file="file://$PROJECT_DIR$/apps/users/templates/users/login_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            <state relative-caret-position="300">
+              <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+        <entry file="file://$PROJECT_DIR$/apps/users/templates/users/add_user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="353">
+              <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+        <entry file="file://$PROJECT_DIR$/apps/users/templates/users/snippets/navbar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="210">
+              <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <marker date="1552346449337" expanded="true" signature="642:1010" ph="..." />
+                <element signature="n#style#0;n#img#0;n#a#0;n#nav#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
+        <entry file="file://$PROJECT_DIR$/apps/bushelper/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/users/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-                <marker date="1552340960388" expanded="true" signature="1083:1086" ph="..." />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -288,16 +278,12 @@
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bus_s</find>
-      <find>bus_stop</find>
-      <find>original</find>
-      <find>point</find>
-      <find>isinsta</find>
       <find>mid</find>
       <find>url</find>
       <find>herok</find>
@@ -323,6 +309,11 @@
       <find>static_</find>
       <find>many</find>
       <find>users_wa</find>
+      <find>next</find>
+      <find>email</find>
+      <find>inpu</find>
+      <find>search_engine_v</find>
+      <find>view</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -331,12 +322,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/custom_storage/custom_azure.py" />
-        <option value="$PROJECT_DIR$/bushelper/dupa.py" />
-        <option value="$PROJECT_DIR$/bushelper/asd" />
-        <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/dkusy/settings/local.py" />
-        <option value="$PROJECT_DIR$/bushelper/asd.py" />
         <option value="$PROJECT_DIR$/bushelper/utils.py" />
         <option value="$PROJECT_DIR$/templates/bushelper/dupa" />
         <option value="$PROJECT_DIR$/bushelper/templatetags/url_tags.py" />
@@ -364,23 +349,30 @@
         <option value="$PROJECT_DIR$/apps/bushelper/.gitignore" />
         <option value="$PROJECT_DIR$/dkusy/settings/production.py" />
         <option value="$PROJECT_DIR$/apps/bushelper/custom/utils.py" />
-        <option value="$PROJECT_DIR$/apps/bushelper/urls.py" />
         <option value="$PROJECT_DIR$/apps/bushelper/custom/managers.py" />
         <option value="$PROJECT_DIR$/apps/bushelper/custom/db_update.py" />
         <option value="$PROJECT_DIR$/apps/users/templates/add_user.html" />
-        <option value="$PROJECT_DIR$/apps/bushelper/templates/bushelper/search_engine.html" />
         <option value="$PROJECT_DIR$/apps/bushelper/templates/bushelper/templ.html" />
-        <option value="$PROJECT_DIR$/apps/bushelper/views.py" />
-        <option value="$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/navbar.html" />
         <option value="$PROJECT_DIR$/dkusy/urls.py" />
         <option value="$PROJECT_DIR$/apps/users/templates/profile_detail.html" />
         <option value="$PROJECT_DIR$/apps/users/admin.py" />
         <option value="$PROJECT_DIR$/apps/users/models.py" />
         <option value="$PROJECT_DIR$/dkusy/settings/base.py" />
         <option value="$PROJECT_DIR$/apps/users/urls.py" />
-        <option value="$PROJECT_DIR$/apps/users/forms.py" />
+        <option value="$PROJECT_DIR$/apps/bushelper/views.py" />
+        <option value="$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/navbar.html" />
+        <option value="$PROJECT_DIR$/apps/users/templates/index.html" />
         <option value="$PROJECT_DIR$/apps/users/templates/login_page.html" />
+        <option value="$PROJECT_DIR$/static/login_panel.css" />
+        <option value="$PROJECT_DIR$/apps/users/templates/users/index.html" />
+        <option value="$PROJECT_DIR$/static/css/login_panel.css" />
+        <option value="$PROJECT_DIR$/apps/users/forms.py" />
         <option value="$PROJECT_DIR$/apps/users/views.py" />
+        <option value="$PROJECT_DIR$/apps/users/templates/users/login_page.html" />
+        <option value="$PROJECT_DIR$/apps/users/templates/users/add_user.html" />
+        <option value="$PROJECT_DIR$/apps/bushelper/urls.py" />
+        <option value="$PROJECT_DIR$/apps/bushelper/templates/bushelper/search_engine.html" />
+        <option value="$PROJECT_DIR$/apps/users/templates/users/snippets/navbar.html" />
       </list>
     </option>
   </component>
@@ -391,9 +383,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-1" />
-    <option name="width" value="789" />
-    <option name="height" value="871" />
+    <option name="width" value="779" />
+    <option name="height" value="869" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -450,25 +441,33 @@
               <item name="dkusy-webapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dkusy-webapp" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="bushelper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dkusy-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dkusy-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="bushelper" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dkusy-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dkusy-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="bushelper" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="bushelper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dkusy-webapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dkusy-webapp" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="users" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dkusy-webapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dkusy-webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="dkusy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dkusy-webapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dkusy-webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="dkusy" type="462c0819:PsiDirectoryNode" />
-              <item name="settings" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -482,21 +481,24 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../dkusy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oskoplast" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/users/templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/apps/users" />
       <recent name="$PROJECT_DIR$/apps/bushelper" />
       <recent name="$PROJECT_DIR$/bushelper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/css" />
+      <recent name="$PROJECT_DIR$/apps/users/templates/users" />
       <recent name="$PROJECT_DIR$/media" />
       <recent name="$PROJECT_DIR$/apps" />
       <recent name="$PROJECT_DIR$/apps/bushelper/custom" />
-      <recent name="$PROJECT_DIR$/apps/bushelper/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -611,7 +613,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.13717695" side_tool="true" weight="0.17438868" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.86282307" visible="true" weight="0.18146718" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.86282307" visible="true" weight="0.18661518" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.32977304" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.3257677" />
@@ -621,8 +623,8 @@
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32977304" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.2670227" />
-      <window_info active="true" anchor="bottom" id="Debug" order="9" visible="true" weight="0.40186915" />
+      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.2670227" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.6248331" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
@@ -636,24 +638,24 @@
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" sideWeight="0.13717695" side_tool="true" weight="0.17438868" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.86282307" weight="0.17696267" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.86282307" visible="true" weight="0.18661518" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.32977304" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32843792" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3257677" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.328877" />
-      <window_info anchor="bottom" id="Python Console" order="4" weight="0.32977304" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32843792" />
+      <window_info anchor="bottom" id="Python Console" order="4" weight="0.32843792" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32977304" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.2683578" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.40320426" />
+      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.2670227" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.40186915" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32977304" />
-      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32977304" />
-      <window_info active="true" anchor="right" id="Database" order="0" visible="true" weight="0.18339768" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32928312" />
+      <window_info anchor="right" id="Database" order="0" weight="0.18854569" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="SciView" order="2" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
@@ -896,37 +898,37 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
-          <line>66</line>
+          <line>68</line>
           <option name="timeStamp" value="396" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
-          <line>67</line>
+          <line>69</line>
           <option name="timeStamp" value="397" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
-          <line>64</line>
+          <line>66</line>
           <option name="timeStamp" value="398" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
-          <line>65</line>
+          <line>67</line>
           <option name="timeStamp" value="399" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="400" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
-          <line>50</line>
+          <line>52</line>
           <option name="timeStamp" value="401" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/bushelper/views.py</url>
-          <line>51</line>
+          <line>53</line>
           <option name="timeStamp" value="402" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1001,72 +1003,103 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/users/views.py</url>
-          <line>55</line>
-          <option name="timeStamp" value="473" />
+          <line>63</line>
+          <option name="timeStamp" value="480" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/users/views.py</url>
-          <line>67</line>
-          <option name="timeStamp" value="474" />
+          <line>66</line>
+          <option name="timeStamp" value="482" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/users/views.py</url>
-          <line>68</line>
-          <option name="timeStamp" value="475" />
+          <line>64</line>
+          <option name="timeStamp" value="485" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/users/views.py</url>
-          <line>69</line>
-          <option name="timeStamp" value="476" />
+          <line>65</line>
+          <option name="timeStamp" value="486" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/users/views.py</url>
           <line>59</line>
-          <option name="timeStamp" value="477" />
+          <option name="timeStamp" value="487" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/users/views.py</url>
           <line>60</line>
-          <option name="timeStamp" value="478" />
+          <option name="timeStamp" value="488" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="489" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/users/views.py</url>
           <line>61</line>
-          <option name="timeStamp" value="479" />
+          <option name="timeStamp" value="494" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>67</line>
+          <option name="timeStamp" value="504" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="505" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="506" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="507" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="510" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="511" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="513" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="514" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="515" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="516" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="517" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/users/templates/bushelper/snippets/footer.html" />
-    <entry file="file://$PROJECT_DIR$/apps/bushelper/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dkusy/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../dkusy/venv/lib/python3.6/site-packages/django/apps/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4e044e32-d230-4922-b5d0-80b67f87b13b/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://4e044e32-d230-4922-b5d0-80b67f87b13b/schema/main/table/bushelper_busstop" />
-    <entry file="das://4e044e32-d230-4922-b5d0-80b67f87b13b/schema/main/table/bushelper_carrier" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/42a672fd-f384-400b-ade8-c99e4bfd6465/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="30" selection-start-column="30" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0285298a-a672-4ffe-b620-f9f8633c2eb9/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1083,9 +1116,6 @@
           <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/regular_directions.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/bushelper/custom/managers.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1121,27 +1151,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://ffa0ffa4-92f2-483b-8c34-8d2d30712544/schema/main/table/auth_user_groups">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ffa0ffa4-92f2-483b-8c34-8d2d30712544/schema/main/table/bushelper_busstop">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ffa0ffa4-92f2-483b-8c34-8d2d30712544/schema/main/table/auth_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://ffa0ffa4-92f2-483b-8c34-8d2d30712544/schema/main/table/auth_user_groups" />
+    <entry file="das://ffa0ffa4-92f2-483b-8c34-8d2d30712544/schema/main/table/bushelper_busstop" />
+    <entry file="das://ffa0ffa4-92f2-483b-8c34-8d2d30712544/schema/main/table/auth_user" />
     <entry file="file://$PROJECT_DIR$/apps/bushelper/custom/db_update.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -1149,77 +1161,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://ffa0ffa4-92f2-483b-8c34-8d2d30712544/schema/main/table/bushelper_direction">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/forms/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/views/generic/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="147" column="8" selection-start-line="147" selection-start-column="8" selection-end-line="147" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/templ.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="39" column="58" lean-forward="true" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/bushelper/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-            <marker date="1552254540545" expanded="true" signature="659:694" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/bushelper/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/search_engine.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://ffa0ffa4-92f2-483b-8c34-8d2d30712544/schema/main/table/bushelper_direction" />
     <entry file="file://$PROJECT_DIR$/dkusy/settings/production.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="99" selection-start-line="4" selection-start-column="99" selection-end-line="4" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/bushelper/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1241,9 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1267,17 +1210,10 @@
     <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/temp.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/templates/profile_detail.html">
+    <entry file="file://$PROJECT_DIR$/apps/users/templates/users/profile_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/templates/add_user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1298,16 +1234,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/snippets/navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#nav#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/templates/users/snippets/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="36" lean-forward="true" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/rest_framework/static/rest_framework/css/bootstrap-theme.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="10" column="21756" selection-start-line="10" selection-start-column="21756" selection-end-line="10" selection-end-column="21756" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/rest_framework/static/rest_framework/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="4" column="117227" selection-start-line="4" selection-start-column="117227" selection-end-line="4" selection-end-column="117227" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/login_panel.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/templates/users/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/forms/fields.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="212" selection-start-line="212" selection-end-line="212" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/forms/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="182" column="8" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
+        <state relative-caret-position="353">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
@@ -1316,30 +1325,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/templates/login_page.html">
+    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        <state relative-caret-position="84">
+          <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1552430137542" expanded="true" signature="590:958" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/contrib/auth/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        <state relative-caret-position="90">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/walking_directions.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="240">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/templ.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/search_engine.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/templates/bushelper/regular_directions.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1552346449337" expanded="true" signature="642:1010" ph="..." />
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1552416206156" expanded="true" signature="697:732" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/bushelper/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/templates/users/add_user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/templates/users/login_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/templates/users/snippets/navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#nav#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

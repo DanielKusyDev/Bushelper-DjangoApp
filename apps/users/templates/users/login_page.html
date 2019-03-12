@@ -1,0 +1,29 @@
+{% extends 'users/templates/users/index.html' %}
+{% load staticfiles %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_panel.css' %}">
+{% endblock %}
+{% block content %}
+
+        <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" method="post" action="{% url 'users:login' %}">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text" id="{{ form.username.id_for_label }}" name="{{ field.name }}"
+                       class="input_field form-control" placeholder="{{ form.username.label }}" required autofocus>
+                <input type="password" id="{{ form.password.id_for_label }}" name="{{ field.name }}"
+                       class="input_field form-control" placeholder="{{ form.password.label }}" required>
+                <input type="hidden" id="{{ form.next.id_for_label }}" name="{{ form.next.name }}"
+                       value="{% if request.GET.next %}{{ request.GET.next }}{% else %}none{% endif %}">
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Zaloguj</button>
+                {% csrf_token %}
+            </form>
+            <a href="{% url 'users:register' %}" class="forgot-password">
+                Nie masz konta? <span class="bold"> Zarejestruj się </span>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}
