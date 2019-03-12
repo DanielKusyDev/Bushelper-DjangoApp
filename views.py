@@ -11,6 +11,7 @@ from rest_framework.reverse import reverse
 from apps.bushelper.forms import SearchForm
 from apps.bushelper.serializers import UserSerializer, CourseSerializer, BusStopSerializer, CarrierStopSerializer
 from apps.bushelper.custom.managers import *
+from apps.users.models import Profile
 
 TEMPLATE_PREFIX = 'bushelper/templates/bushelper/'
 
@@ -23,10 +24,11 @@ class SearchEngineView(TemplateView):
     template_name = get_template_name('search_engine.html')
 
     def get(self, request, **kwargs):
-        if not request.GET:
-            form = SearchForm
-            context = {'form': form}
-            return render(request, self.template_name, context)
+        form = SearchForm
+        context = {'form': form}
+        if request.user.is_authenticated:
+            context['profile'] = Profile.objects.get(user=request.user)
+        return render(request, self.template_name, context)
 
 
 def search(request):
