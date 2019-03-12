@@ -1,11 +1,14 @@
 {% extends 'bushelper/templ.html' %}
 {% load staticfiles %}
 
-{% block content %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search_engine.css' %}">
+{% endblock %}
 
+{% block content %}
 <br>
 <div class='container'>
-    <form action="{% url 'bushelper:search_view' %}" autocomplete="off" method="get">
+    <form action="{% url 'bushelper:search' %}" autocomplete="off" method="get">
         <div class="row" role="group">
             {{ form.origin }}
             <button id="geolocation_button" class="form-control col-md-1" type="button">

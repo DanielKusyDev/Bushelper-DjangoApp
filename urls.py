@@ -11,8 +11,8 @@ router.register('carrierstops', views.CarrierStopViewSet)
 app_name = 'bushelper'
 
 urlpatterns = [
-    path('', views.SearchEngineView.as_view(), name='search_engine_view'),
-    path('search/', views.search, name='search_view'),
+    path('', views.SearchEngineView.as_view(), name='search_engine'),
+    path('search/', views.search, name='search'),
     path('restapi/', include(router.urls)),
 ]
 
