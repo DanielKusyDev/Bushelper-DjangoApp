@@ -105,6 +105,3 @@ def api_root(request, format=None):
         'courses': reverse('courses-list', request=request, format=format),
         'carrierstop': reverse('carrierstop-list', request=request, format=format)
     })
-
-
-#test
