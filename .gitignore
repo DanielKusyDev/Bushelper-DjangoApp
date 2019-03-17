@@ -1,6 +1,5 @@
 dkusy/settings/local.py
 db.sqlite3
-static/
 
 .DS_Store
 bin/
