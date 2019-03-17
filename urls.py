@@ -1,19 +1,15 @@
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-
+from rest_framework.routers import DefaultRouter, SimpleRouter
 from . import views
-
-router = DefaultRouter()
-router.register('busstops', views.BusStopViewSet)
-router.register('courses', views.CourseViewSet, 'courses_router')
-router.register('carrierstops', views.CarrierStopViewSet)
 
 app_name = 'bushelper'
 
+router = SimpleRouter()
+
+router.register('bus_stops', views.BusStopViewSet, 'bus_stops')
 urlpatterns = [
     path('', views.SearchEngineView.as_view(), name='search_engine'),
-    path('search/', views.search, name='search'),
-    path('restapi/', include(router.urls)),
+    path('api/', include(router.urls)),
 ]
 
 urlpatterns += [

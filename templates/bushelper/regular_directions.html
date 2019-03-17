@@ -84,7 +84,7 @@
         var walking_directions = "{{ walking_directions_api|escapejs }}";
         var travel_duration = "{{ travel_duration }}";
     </script>
-    <script src="{% static 'js/regular_directions.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/search_result.js'%}"></script>
+    <script src="{% static 'js/bushelper/regular_directions.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/bushelper/search_result.js' %}"></script>
 
 {% endblock javascript %}
