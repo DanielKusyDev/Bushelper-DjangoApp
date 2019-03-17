@@ -1,9 +1,12 @@
-{% extends 'users/templates/users/index.html' %}
+{% extends 'common/templates/index.html' %}
+
 {% load staticfiles %}
 {% block head %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/login_panel.css' %}">
 {% endblock %}
-{% block content %}
+{% block body %}
 
         <div class="container">
         <div class="card card-container">
@@ -11,9 +14,9 @@
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin" method="post" action="{% url 'users:login' %}">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" id="{{ form.username.id_for_label }}" name="{{ field.name }}"
+                <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}"
                        class="input_field form-control" placeholder="{{ form.username.label }}" required autofocus>
-                <input type="password" id="{{ form.password.id_for_label }}" name="{{ field.name }}"
+                <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}"
                        class="input_field form-control" placeholder="{{ form.password.label }}" required>
                 <input type="hidden" id="{{ form.next.id_for_label }}" name="{{ form.next.name }}"
                        value="{% if request.GET.next %}{{ request.GET.next }}{% else %}none{% endif %}">

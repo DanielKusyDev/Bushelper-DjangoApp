@@ -1,0 +1,12 @@
+<div class="open"> <span class="cls"></span> <span>
+  <ul class="sub-menu ">
+    {% if profile %}
+        <li><a href="{% url 'users:profile_detail' username=user.username %}">{{ profile.user.username }}</a> </li>
+        <li><a href="{% url 'users:logout' %}">Wyloguj</a> </li>
+    {% else %}
+        <li><a href="{% url 'users:login' %}">Zaloguj</a> </li>
+    {% endif %}
+    <li> <a href="{% url 'bushelper:search_engine' %}">Strona główna</a> </li>
+    <li> <a href="#">Contact</a> </li>
+  </ul>
+  </span> <span class="cls"></span> </div>

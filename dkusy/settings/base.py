@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.common.context_processors.profile',
             ],
         },
     },
@@ -140,9 +141,8 @@ REST_FRAMEWORK = {
 }
 
 
-
-CORS_REPLACE_HTTPS_REFERER      = False
-HOST_SCHEME                     = "http://"
+CORS_REPLACE_HTTPS_REFERER = False
+HOST_SCHEME = "http://"
 SECURE_PROXY_SSL_HEADER         = None
 SECURE_SSL_REDIRECT             = False
 SESSION_COOKIE_SECURE           = False

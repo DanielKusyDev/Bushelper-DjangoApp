@@ -52,7 +52,7 @@ class AuthenticationView(View):
     def get(self, request):
         if self.logout_path in request.path:
             logout(request)
-            return redirect('users:login')
+            return redirect('bushelper:search_engine')
         return render(request, self.template_name, context={'form': LoginForm()})
 
     def post(self, request):
@@ -67,8 +67,10 @@ class AuthenticationView(View):
             login(request, user)
             if form.cleaned_data.get('next') != 'none': # todo UWAŻAĆ ZEBY DODAC DO WYJATKOW NAZW UZYTKOWNIKOW KTORYCH NIE MOZNA UZYC
                 return redirect(form.cleaned_data.get('next'))
-            return redirect(reverse('bushelper:search_engine_view'))
+            return redirect(reverse('bushelper:search_engine'))
         return render(request, self.template_name, context={'form': form, 'errors': {'auth_error': _('Nieprawidłowe dane logowania')}}, status=401)
 
 
+def test(request):
+    return render(request, 'common/templates/test.html')
 

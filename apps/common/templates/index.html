@@ -1,0 +1,53 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+{% include 'common/templates/navbar.html' %}
+{% block body %}
+{% endblock %}
+
+<footer class="footer">
+      <div class="container" style="position:fixed; bottom:0; width:100%;">
+        <span class="text-muted">Daniel Kusy 2018 © All Rights Reserved</span>
+      </div>
+</footer>
+</body>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+<script
+src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"
+integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+crossorigin="anonymous">
+</script>
+<script>
+$(document).ready(function() {
+		$(document).delegate('.open', 'click', function(event){
+			$(this).addClass('oppenned');
+			event.stopPropagation();
+		});
+		$(document).delegate('body', 'click', function(event) {
+			$('.open').removeClass('oppenned');
+		});
+		$(document).delegate('.cls', 'click', function(event){
+			$('.open').removeClass('oppenned');
+			event.stopPropagation();
+		});
+	});
+</script>
+
+{% block scripts %}
+
+{% endblock scripts %}
+
+</html>

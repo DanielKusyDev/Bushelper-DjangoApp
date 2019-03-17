@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
+
+body, html {
+    height: 100%;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e8896', endColorstr='#d9f0fc',GradientType=0 );
+    font-family: 'Raleway', sans-serif;
+}
+
+
+h1 {
+  width: 100%;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.profile_icon img{
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    width: 70px;
+    height: 70px;
+    display: block;
+    cursor: pointer;
+    vertical-align: middle;
+    left: 40px;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black
+}

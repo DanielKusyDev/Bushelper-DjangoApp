@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>title</title>
-</head>
-<body>
-    <img src="{{ profile.avatar.url }}">
-     {{ profile.user }}
-    {{ profile.description }}
-</body>
-</html>
+{% extends 'common/templates/index.html' %}
+{% load staticfiles %}
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/users/profile_detail.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="card">
+  <img src="{{ profile.avatar.url }}" style="width:100%">
+  <h1>{{ profile.user.username }}</h1>
+  <p class="title">{{ profile.description }}</p>
+</div>
+{% endblock %}
