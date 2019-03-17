@@ -82,6 +82,9 @@ class Scraper(object):
         self.direction = None
         self.bus_stop = None
 
+    def get_bus_stops(self):
+        pass
+
     def arrange_data(self, *args):
         pass
 
@@ -105,6 +108,10 @@ class Scraper(object):
 
 class FremiksScraper(Scraper):
     """ Scraps schedule from fremiks """
+
+        # if direction is not None:
+        #     return BusStop.objects.filter(fremiks_alias__isnull=False, direction=direction)
+        # return BusStop.objects.filter(fremiks_alias=False)
 
     def get_schedule(self):
         tables = self.get_table()
