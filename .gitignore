@@ -5,6 +5,7 @@ static/json
 bin/
 include/
 pip-selfcheck.json
+idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
