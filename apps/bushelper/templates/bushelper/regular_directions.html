@@ -1,0 +1,90 @@
+{% extends 'bushelper/templ.html' %}
+{% load custom_tags %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="card col-md-6" style="background-color: #cbcbcb">
+            <div id="id_course_panel" class="card-body">
+                <div class="row">
+                    <span class="col-md-4 bg-white text-center mr-auto" style="border-radius: 30px;border-style: solid; background-color: #ededed">
+                        <h5>{{ origin }}</h5>
+                        <span id="id_left_col"></span>
+                    </span>
+                    <span id="id_mid_col" class="col-md-3 text-center bg-white text-center" style="border-radius: 30px;border-style: solid; background-color: #ededed">
+
+                    </span>
+              <span class="col-md-4 bg-white text-center ml-auto" style="border-radius: 30px;border-style: solid; background-color: #ededed">
+                  <h4>{{ destination }}</h4>
+                  <span id="id_right_col"></span>
+              </span>
+                </div>
+            </div>
+            <ul id="courses_list" class="list-group list-group-flush text-center">
+                {% for course in courses %}
+                    {% if forloop.first %}
+                        <li id="id_course_{{ course.id }}" class="list-group-item course_list_item">
+                            {% else %}
+                        <li id="id_course_{{ course.id }}" class="list-group-item course_list_item">
+                    {% endif %}
+                <b>{{ course.departure }}</b> {{ course.carrier }} {% if course.line %} {{ course.line }} {% endif %} {{ course.course_type }}
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="mx-auto">
+                <nav aria-label="Courses page navigation">
+                    <ul class="pagination">
+                        {% if courses.has_previous %}
+                            <li class="page-item">
+
+                                <a class="page-link" href="{% replace_query_param request.get_full_path "page" courses.previous_page_number %}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% for page in courses.paginator.page_range%}
+                            {% if page == courses.number%}
+
+                                <li class="page-item" ><a class="page-link current-page" href="{% replace_query_param request.get_full_path "page" page %}">{{ page }}</a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="{% replace_query_param request.get_full_path "page" page %}">{{ page }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if  courses.has_next %}
+
+                            <a class="page-link" href="{% replace_query_param request.get_full_path "page" courses.next_page_number %}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+            <div class="card-body">
+                <b>Legenda:</b>
+                <p><img src="{% static 'img/icon/solid.png' %}">&nbsp;Sugerowana trasa autobusu</p>
+                <p><img src="{% static 'img/icon/dotted.png' %}">   Piesza droga do przystanku </p>
+            </div>
+        </div>
+        <div id="map" class="card col-md-6"></div>
+    </div>
+    </div>
+
+{% endblock content %}
+
+{% block javascript %}
+    <script>
+        var origin_coords = "{{ origin.longtitude|stringformat:"f" }}, {{ origin.latitude|stringformat:"f" }}";
+        var destination_coords = "{{ destination.longtitude|stringformat:"f" }}, {{ destination.latitude|stringformat:"f" }}";
+        var origin_name = "{{ origin }}";
+        var destination_name = "{{ destination }}";
+        var directions = "{{ directions_api|escapejs }}";
+        var walking_directions = "{{ walking_directions_api|escapejs }}";
+        var travel_duration = "{{ travel_duration }}";
+    </script>
+    <script src="{% static 'js/bushelper/regular_directions.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/bushelper/search_result.js' %}"></script>
+
+{% endblock javascript %}

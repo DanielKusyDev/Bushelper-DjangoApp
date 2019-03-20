@@ -1,0 +1,46 @@
+{% extends 'common/templates/index.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search_engine.css' %}">
+{% endblock %}
+{% block body %}
+{% include 'common/templates/snippets/profile_icon.html' %}
+    <div class="search__container">
+    <p class="search__title">
+        Fremiks, TonyExpress, a może MPK? Znajdź swój kurs.
+    </p>
+    <form action="{% url 'bushelper:search_engine' %}" autocomplete="off" method="post">
+        <div class="location">
+        <input class="search__input" type="text" id="{{ form.origin.id_for_label }}"
+         name="{{ form.origin.name }}" placeholder="Odjazd z">
+            <img id="geolocation_button" src="https://static.thenounproject.com/png/92016-200.png"></div>
+        <input class="search__input" type="text" id="{{ form.destination.id_for_label }}"
+         name="{{ form.destination.name }}" placeholder="Przyjazd do">
+        <select name="{{ form.direction.name }}" id="{{ form.direction.id_for_label }}">
+            {% for choice in form.direction %}
+                <option value="{{ choice.data.value }}">{{ choice.data.label }}</option>
+            {% endfor %}
+        </select>
+        <input type="{{ form.coordinates.0.data.type }}" name="{{ form.coordinates.name }}" id="{{ form.coordinates.id_for_label }}">
+        <button type="submit">Szukaj</button>
+    {% csrf_token %}
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var url = "{% url 'bushelper:bus_stops-list' %}"
+    </script>
+
+    <script type="text/javascript" src="{% static 'js/bushelper/search_engine_autocomplete.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bushelper/search_engine_geolocation.js' %}"></script>
+{% endblock scripts %}
+
+
+
+
+
+
+
