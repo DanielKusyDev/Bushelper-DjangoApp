@@ -1,9 +1,0 @@
-[submodule "Bushelper"]
-	path = Bushelper
-	url = https://github.com/DanielKusyDev/Bushelper.git
-[submodule "apps/Bushelper"]
-	path = apps/Bushelper
-	url = https://github.com/DanielKusyDev/Bushelper.git
-[submodule "apps/bushelper"]
-	path = apps/bushelper
-	url = https://github.com/DanielKusyDev/bushelper.git
