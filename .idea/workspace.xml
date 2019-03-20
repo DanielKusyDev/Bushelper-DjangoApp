@@ -345,10 +345,10 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Django server.dkusy" />
       <item itemvalue="Python.db_update" />
       <item itemvalue="Python.graph_update" />
       <item itemvalue="Python.utils" />
-      <item itemvalue="Django server.dkusy" />
     </list>
     <recent_temporary>
       <list>
