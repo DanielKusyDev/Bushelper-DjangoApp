@@ -75,38 +75,3 @@ class BusStopViewSet(viewsets.ModelViewSet):
     serializer_class = BusStopSerializer
     paginator = None
 
-# class UserViewSet(viewsets.ReadOnlyModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
-#
-#
-# class CourseViewSet(viewsets.ReadOnlyModelViewSet):
-#     serializer_class = CourseSerializer
-#
-#     def get_queryset(self):
-#         queryset = Course.objects.all()
-#         id = self.request.query_params.get('id')
-#         if id is not None:
-#             queryset = queryset.filter(id=id)
-#         return queryset
-#
-#
-# class BusStopViewSet(viewsets.ModelViewSet):
-#     queryset = BusStop.objects.all().order_by('pk')
-#     serializer_class = BusStopSerializer
-#     paginator = None
-#
-#
-# class CarrierStopViewSet(viewsets.ModelViewSet):
-#     queryset = CarrierStop.objects.all()
-#     serializer_class = CarrierStopSerializer
-#     paginator = None
-#
-
-# @api_view(['GET'])
-# def api_root(request, format=None):
-#     return Response({
-#         'busstops': reverse('busstops-list', request=request, format=format),
-#         'courses': reverse('courses-list', request=request, format=format),
-#         'carrierstop': reverse('carrierstop-list', request=request, format=format)
-#     })
