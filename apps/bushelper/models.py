@@ -62,8 +62,6 @@ class Course(models.Model):
     carrier = models.ForeignKey(Carrier, on_delete=models.CASCADE, related_name='course_carrier_fk')
     bus_stop = models.ForeignKey(BusStop, on_delete=models.CASCADE, related_name='course_stop_fk')
 
-    class Meta:
-        ordering = ['pk']
 
     def __str__(self):
         return "%s %s" % (self.departure, self.carrier)
