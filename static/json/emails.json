@@ -1,7 +1,0 @@
-{
-  "bus_stops_changed": {
-    "subject": "Zmiany w przystankach - Bushelper Service",
-    "body": "Wykryto zmiany w rozkładzie przystanków. Należy wprowadzić manualne zmiany w bazie danych. Zmiany wykryto na linii: ",
-    "footer": "Bushelper Service - Daniel Kusy."
-  }
-}
