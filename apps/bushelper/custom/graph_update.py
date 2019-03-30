@@ -2,7 +2,7 @@ import django
 django.setup()
 from apps.bushelper.custom.graph import Graph
 from apps.bushelper.custom.scrapers import FremiksScraper
-from apps.bushelper.models import Line, Carrier, Direction, BusStop
+from apps.bushelper.models import Line, BusStop
 
 
 def get_fremiks_connections(graph, direction_name):

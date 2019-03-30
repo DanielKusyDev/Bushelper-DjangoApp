@@ -14,13 +14,25 @@ class BusStop(models.Model):
     direction = models.ForeignKey(Direction, on_delete=models.CASCADE, related_name='busstop_direction_fk')
     latitude = models.FloatField()
     longtitude = models.FloatField()
-    neighbour = models.ForeignKey(to='self', on_delete=models.SET_NULL, null=True)
+    neighbours = models.ManyToManyField(to='self',
+                                        through='BusStopConnection',
+                                        through_fields=('origin', 'destination'),
+                                        )
 
     def __str__(self):
         return '%s' % self.mpk_street
 
     class Meta:
         ordering = ['mpk_street']
+
+
+class BusStopConnection(models.Model):
+    origin = models.ForeignKey(to=BusStop, on_delete=models.SET_NULL)
+    destination = models.ForeignKey(to=BusStop, on_delete=models.SET_NULL)
+    travel_time = models.IntegerField()
+
+    def __str__(self):
+        return '%s to %s connection' % (self.origin, self.destination)
 
 
 class Carrier(models.Model):
