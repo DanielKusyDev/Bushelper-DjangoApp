@@ -109,13 +109,9 @@ class Scraper(object):
 class FremiksScraper(Scraper):
     """ Scraps schedule from fremiks """
 
-        # if direction is not None:
-        #     return BusStop.objects.filter(fremiks_alias__isnull=False, direction=direction)
-        # return BusStop.objects.filter(fremiks_alias=False)
-
-    def get_schedule(self):
-        tables = self.get_table()
-        data_arr = self.arrange_data(tables[0])
+    def get_schedule(self, table=None):
+        table = self.get_table() if table is None else table
+        data_arr = self.arrange_data(table[0])
         return data_arr
 
     def arrange_data(self, table):

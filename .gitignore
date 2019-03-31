@@ -1,5 +1,4 @@
 dkusy/settings/local.py
-db.sqlite3
 static/json
 .DS_Store
 bin/

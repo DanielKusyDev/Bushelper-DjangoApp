@@ -15,6 +15,29 @@ def refresh_all_id():
         cursor.execute("UPDATE sqlite_sequence SET seq=0 WHERE name LIKE %s", [table])
 
 
+def update_graph(table):
+    src, dst = None, None
+    for scrapped_bus_stop in table[0][0][1:]:
+        if src is not None and dst is not None:
+            print(src, dst)
+
+            src = dst
+            dst = None
+        for query_bus_stop in BusStop.objects.filter(fremiks_alias__isnull=False,
+                                                     direction__direction__iexact=direction_name):
+            if str(query_bus_stop.fremiks_alias).lower().replace(' ', '') in scrapped_bus_stop.lower().replace(u'\xa0',
+                                                                                                               u' ').replace(
+                    ' ', ''):
+                if src is None:
+                    src = query_bus_stop
+                else:
+                    dst = query_bus_stop
+                break
+    if src is not None and dst is not None:
+        print(src, dst)
+        graph.push_edge(src, dst)
+
+
 def get_fremiks_schedules():
     fremiks_lines = Line.objects.filter(url__contains='fremiks')
     carrier = Carrier.objects.get(name__iexact='fremiks')
@@ -22,9 +45,12 @@ def get_fremiks_schedules():
     for line in fremiks_lines:
         schedules[line] = {}
         f_scrapper = FremiksScraper(line.url)
-        single_schedule = f_scrapper.get_schedule()
+        data_table = f_scrapper.get_table()
+        update_graph(data_table)
+        single_schedule = f_scrapper.get_schedule(table=data_table)
         direction = f_scrapper.direction
         schedules[line][direction] = single_schedule
+        break
     return carrier, schedules
 
 
@@ -52,9 +78,8 @@ def get_mpk_schedules():
                 email_sent = True
                 request = urlopen(static('json/emails.json'))
                 email_json = json.loads(request.read())['bus_stops_changed']
-                email_context = {}
-                email_context['subject'] = email_json['subject']
-                email_context['body'] = email_json['body'] + '<br>' + str(line) + "<br><br>" + email_json['footer']
+                email_context = {'subject': email_json['subject'],
+                                 'body': email_json['body'] + '<br>' + str(line) + "<br><br>" + email_json['footer']}
                 send_email(receiver='daniel.kusy97@gmail.com', context=email_context)
                 # todo erase harcoded email address. Firstly send emails to all superusers, but later create user subapp and set to moderators
 
