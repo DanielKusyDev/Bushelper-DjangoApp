@@ -27,9 +27,9 @@ def erase_direction_name(bus_stop):
 def get_direction(direction):
     """Accepts lowercase string"""
     if "świdnik" in direction:
-        result = 'lbn'
+        result = Direction.objects.get(direction__iexact='lbn')
     else:
-        result = 'lsw'
+        result = Direction.objects.get(direction__iexact='lsw')
     return result
 
 
