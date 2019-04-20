@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Direction(models.Model):
-    direction = models.CharField(max_length=3)
+    name = models.CharField(max_length=3)
 
     def __str__(self):
         return self.direction
@@ -13,7 +13,7 @@ class BusStop(models.Model):
     fremiks_alias = models.CharField(max_length=255, null=True, blank=True)
     direction = models.ForeignKey(Direction, on_delete=models.CASCADE)
     latitude = models.FloatField()
-    longtitude = models.FloatField()
+    longitude = models.FloatField()
     neighbours = models.ManyToManyField(to='self')
 
     def __str__(self):

@@ -72,5 +72,5 @@ def parse_coordinates(coordinates):
         coordinates[0], coordinates[1] = coordinates[1], coordinates[0]
         coordinates = (float(coordinates[0]), float(coordinates[1]))
     elif isinstance(coordinates, BusStop):
-        coordinates = (float(coordinates.longtitude), float(coordinates.latitude))
+        coordinates = (float(coordinates.longitude), float(coordinates.latitude))
     return coordinates
