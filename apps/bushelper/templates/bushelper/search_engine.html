@@ -1,6 +1,5 @@
 {% extends 'common/templates/index.html' %}
-{% load staticfiles %}
-
+{% load static %}
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/search_engine.css' %}">
 {% endblock %}
@@ -11,10 +10,11 @@
         Fremiks, TonyExpress, a może MPK? Znajdź swój kurs.
     </p>
     <form action="{% url 'bushelper:search_engine' %}" autocomplete="off" method="post">
-        <div class="location">
-        <input class="search__input" type="text" id="{{ form.origin.id_for_label }}"
-         name="{{ form.origin.name }}" placeholder="Odjazd z">
-            <img id="geolocation_button" src="https://static.thenounproject.com/png/92016-200.png"></div>
+        <div class="geolocation">
+            <input class="search__input" type="text" id="{{ form.origin.id_for_label }}"
+             name="{{ form.origin.name }}" placeholder="Odjazd z">
+            <img id="geolocation_button" src="https://static.thenounproject.com/png/92016-200.png">
+        </div>
         <input class="search__input" type="text" id="{{ form.destination.id_for_label }}"
          name="{{ form.destination.name }}" placeholder="Przyjazd do">
         <select name="{{ form.direction.name }}" id="{{ form.direction.id_for_label }}">

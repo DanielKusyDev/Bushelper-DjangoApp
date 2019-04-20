@@ -5,7 +5,7 @@ class Direction(models.Model):
     name = models.CharField(max_length=3)
 
     def __str__(self):
-        return self.direction
+        return self.name
 
 
 class BusStop(models.Model):

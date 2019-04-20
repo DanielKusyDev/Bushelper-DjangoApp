@@ -12,8 +12,19 @@
         line-height: 200%;
     }
 
-.search__input {
+.geolocation{
+  position: relative;
   width: 100%;
+}
+
+#geolocation_button{
+  position: absolute;
+  right: 10%;
+  width: 40px;
+}
+
+.search__input {
+  width: 90%;
   padding: 12px 24px;
   font-size: 14px;
   line-height: 18px;
@@ -26,15 +37,6 @@
   transform-style: preserve-3d;
 }
 
-.location img{
-  position: absolute;
-  right: 300px;
-  top: 155px;
-  width: 40px;
-  height: 40px;
-  display: block;
-  cursor: pointer;
-}
 
 button{
   padding: 12px 24px;

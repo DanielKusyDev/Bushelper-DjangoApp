@@ -7,6 +7,7 @@ app_name = 'bushelper'
 router = SimpleRouter()
 
 router.register('bus_stops', views.BusStopViewSet, 'bus_stops')
+
 urlpatterns = [
     path('', views.SearchEngineView.as_view(), name='search_engine'),
     path('api/', include(router.urls)),

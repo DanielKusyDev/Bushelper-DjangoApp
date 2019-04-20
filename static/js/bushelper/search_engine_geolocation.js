@@ -1,4 +1,5 @@
 $("#geolocation_button").click(function () {
+    console.log("asdasd");
     origin = $("#id_origin");
     origin.attr("placeholder", "");
     origin.addClass('loaderbg');
