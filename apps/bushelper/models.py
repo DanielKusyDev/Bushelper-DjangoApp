@@ -11,10 +11,10 @@ class Direction(models.Model):
 class BusStop(models.Model):
     mpk_street = models.CharField(max_length=255, default='')
     fremiks_alias = models.CharField(max_length=255, null=True, blank=True)
-    direction = models.ForeignKey(Direction, on_delete=models.CASCADE, related_name='direction')
+    direction = models.ForeignKey(Direction, on_delete=models.CASCADE)
     latitude = models.FloatField()
     longtitude = models.FloatField()
-    neighbours = models.ManyToManyField(to='self', null=True)
+    neighbours = models.ManyToManyField(to='self')
 
     def __str__(self):
         return '%s' % self.mpk_street
@@ -45,10 +45,10 @@ class Line(models.Model):
 class Course(models.Model):
     departure = models.TimeField(null=False)
     course_type = models.CharField(max_length=7, unique=False, null=False)
-    line = models.ForeignKey(Line, on_delete=models.CASCADE, related_name='line', null=True, blank=True)
-    direction = models.ForeignKey(Direction, on_delete=models.CASCADE, related_name='direction')
-    carrier = models.ForeignKey(Carrier, on_delete=models.CASCADE, related_name='carrier')
-    bus_stop = models.ForeignKey(BusStop, on_delete=models.CASCADE, related_name='bus_stop')
+    line = models.ForeignKey(Line, on_delete=models.CASCADE, null=True, blank=True, related_name='course_line')
+    direction = models.ForeignKey(Direction, on_delete=models.CASCADE, related_name='course_direction')
+    carrier = models.ForeignKey(Carrier, on_delete=models.CASCADE, related_name='course_carrier')
+    bus_stop = models.ForeignKey(BusStop, on_delete=models.CASCADE, related_name='course_bus_stop')
 
     def __str__(self):
         return "%s %s" % (self.departure, self.carrier)
