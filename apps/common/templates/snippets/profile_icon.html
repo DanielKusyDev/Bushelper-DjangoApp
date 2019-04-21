@@ -1,5 +1,7 @@
 {% if profile %}
   <div class="profile_icon">
-   <a href="{% url 'users:profile_detail' username=user.username %}"><img src="{{ profile.avatar.url }}"></a>
+    {% if profile.avatar  %}
+           <a href="{% url 'users:profile_detail' username=user.username %}"><img src="{{ profile.avatar.url }}"></a>
+    {% endif %}
   </div>
 {% endif %}

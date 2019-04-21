@@ -1,5 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.forms import PasswordInput, HiddenInput, ModelChoiceField
 from django.utils.translation import ugettext_lazy as _
@@ -12,7 +14,6 @@ class LoginForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': 'input_field form-control',
-                'autofocus': 'autofocus',
             }
         )
     )
@@ -27,3 +28,15 @@ class LoginForm(forms.Form):
     class Meta:
         model = get_user_model()
         fields = ['username', 'password']
+
+
+class RegisterForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password1', 'password2')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'input_field form-control'
+            field.help_text = None
