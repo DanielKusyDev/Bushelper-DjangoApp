@@ -6,7 +6,16 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=128, label=_('Username'))
+    username = forms.CharField(
+        max_length=128,
+        label=_('Username'),
+        widget=forms.TextInput(
+            attrs={
+                'class': 'input_field form-control',
+                'autofocus': 'autofocus',
+            }
+        )
+    )
     password = forms.CharField(max_length=128, widget=PasswordInput, label=_('Password'))
     next = forms.CharField(max_length=128, label=_('next'))
 

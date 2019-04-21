@@ -35,13 +35,14 @@ class CreateUser(View):
         return render(request, get_template_name('add_user.html'), context={'form': form})
 
     def post(self, request):
-        user = UserCreationForm(request.POST)
-        if user.is_valid():
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
             messages.add_message(request=request, level=messages.SUCCESS, message='Zarejestrowano pomyślnie')
-            user.save()
+            form.save()
+            return redirect(reverse('users:register'))
         else:
             messages.add_message(request=request, level=messages.SUCCESS, message='Błąd rejestracji')
-        return redirect(reverse('users:register'))
+            return render(request, 'users/add_user.html', context={'form': form})
 
 
 class AuthenticationView(View):
