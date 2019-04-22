@@ -9,7 +9,7 @@ from apps.bushelper.models import BusStop
 
 class Profile(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=CASCADE, verbose_name='user')
-    avatar = models.ImageField(null=True, blank=True, verbose_name='avatar',  default='path/to/my/default/image.jpg')
+    avatar = models.ImageField(null=True, blank=True, verbose_name='avatar',  default='default_avatar.png')
     description = models.CharField(max_length=100, null=True, blank=True, verbose_name='description')
     favourites = models.ManyToManyField(to=BusStop, through='Waypoint', through_fields=('profile', 'bus_stop'),
                                         verbose_name='favourites')
