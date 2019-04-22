@@ -10,8 +10,8 @@ def no_reverse(apps, schema_editor):
 def add_base_objects(apps, schema_editor):
     Direction = apps.get_model('bushelper', 'Direction')
     Direction.objects.bulk_create([
+        Direction(name='lbn'),
         Direction(name='lsw'),
-        Direction(name='lbn')
     ])
 
     Carrier = apps.get_model('bushelper', 'Carrier')

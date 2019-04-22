@@ -34,7 +34,7 @@ class SameBusStopError(Exception):
 
 def filtered_by_dest(courses, origin, destination, direction):
     """Generator that filter courses. Yield only courses which goes to/through destination bus stop."""
-    carrier_stops = CarrierStop.objects.filter(direction__direction=direction)
+    carrier_stops = CarrierStop.objects.filter(direction__name=direction)
     for cs in carrier_stops:
         if cs.line:
             filtered_courses = courses.filter(carrier=cs.carrier).filter(line=cs.line)

@@ -27,9 +27,9 @@ def erase_direction_name(bus_stop):
 def get_direction(direction):
     """Accepts lowercase string"""
     if "świdnik" in direction:
-        result = Direction.objects.get(direction__iexact='lbn')
+        result = Direction.objects.get(name__iexact='lbn')
     else:
-        result = Direction.objects.get(direction__iexact='lsw')
+        result = Direction.objects.get(name__iexact='lsw')
     return result
 
 
@@ -125,7 +125,7 @@ class FremiksScraper(Scraper):
         dep_dict = {}
         course_types = [c_type.replace(u'\xa0', u' ') for c_type in data_frame[0][1:]]
 
-        queryset = BusStop.objects.filter(direction__direction__iexact=self.direction, fremiks_alias__isnull=False)
+        queryset = BusStop.objects.filter(direction__name__iexact=self.direction, fremiks_alias__isnull=False)
         for row in data_frame[1:]:
             stop_name = row[0].replace(u'\xa0', u' ')
             stop_name = erase_direction_name(stop_name)
@@ -167,10 +167,11 @@ class MpkScraper(Scraper):
         return schedule
 
     def arrange_data(self, table, soup):
-        table = np.array(table)
         departures = []
         shitty_mpk_programmer_condition = re.compile(r'\..')
-        for hour, minutes in zip(table[0, 1:], table[1, 1:]):
+        hours_array = np.array(table.columns)
+        minutes_array = np.array(table.values)
+        for hour, minutes in zip(hours_array[1:], minutes_array[1:]):
             if shitty_mpk_programmer_condition.search(str(hour)):
                 continue
             minutes = str(minutes).lower()
@@ -204,5 +205,5 @@ class MpkScraper(Scraper):
         for k in self.DIRECTIONS:
             for street in self.DIRECTIONS[k]:
                 if street in direction:
-                    self.direction = Direction.objects.get(direction__iexact=k)
+                    self.direction = Direction.objects.get(name__iexact=k)
                     break

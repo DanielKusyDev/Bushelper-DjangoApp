@@ -1,5 +1,4 @@
 from urllib.request import urlopen
-import pandas as pd
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
 
@@ -39,28 +38,6 @@ def update_fremiks_graph(table, direction):
     print('')
 
 
-def update_mpk_graph(line, direction):
-    table = pd.read_html(line.url)[0][1].dropna()[1:]
-    src, dst = None, None
-    print('--- Creating MPK graph --- ')
-    for bus_stop_name in table:
-        if src is not None and dst is not None:
-            print('%s -> %s' % (src, dst))
-            src.neighbours.add(dst)
-            src = dst
-            dst = None
-        bus_stop_name = bus_stop_name.split(' - ')[-1]
-        object = BusStop.objects.get(mpk_street__iexact=bus_stop_name, direction=direction)
-        if src is None:
-            src = object
-        else:
-            dst = object
-    if src is not None and dst is not None:
-        print('%s -> %s' % (src, dst))
-        src.neihbours.add(dst)
-    print('')
-
-
 def populate(schedule, line, direction, carrier):
     for bus_stop in schedule:
         for course_type in schedule[bus_stop]:
@@ -94,7 +71,6 @@ def mpk_update():
         direction = None
         for url in mpk_soup.urls():
             if direction is not None:
-                # update_mpk_graph(line, direction)
                 direction = None
             m_scraper = MpkScraper(url)
             try:
@@ -108,19 +84,15 @@ def mpk_update():
                 if email_sent:
                     continue
                 email_sent = True
-                # request = urlopen(static('json/emails.json'))
-                # email_json = json.loads(request.read())['bus_stops_changed']
-                # email_context = {'subject': email_json['subject'],
-                #                  'body': email_json['body'] + '<br>' + str(line) + "<br><br>" + email_json['footer']}
-                # send_email(receiver='daniel.kusy97@gmail.com', context=email_context)
-                # todo erase harcoded email address. Firstly send emails to all superusers, but later create user subapp and set to moderators
-        if direction is not None:
-            # update_mpk_graph(line, direction)
-            pass
+                request = urlopen(static('json/emails.json'))
+                email_json = json.loads(request.read())['bus_stops_changed']
+                email_context = {'subject': email_json['subject'],
+                                 'body': email_json['body'] + '<br>' + str(line) + "<br><br>" + email_json['footer']}
+                send_email(receiver='daniel.kusy97@gmail.com', context=email_context)
+
 
 if __name__ == '__main__':
     refresh_all_id()
     Course.objects.all().delete()
     fremiks_update()
     mpk_update()
-    # todo lbn-lsw courses does not appear if you want to take bus from lsw to lsw

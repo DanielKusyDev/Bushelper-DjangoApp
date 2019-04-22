@@ -37,7 +37,7 @@ def get_closest_valid_stop(coordinates, destination):
 def get_valid_courses_between_stops(origin, destination, direction):
     curr_day = datetime.now().weekday()
     if 0 <= curr_day <= 5:
-        unfiltered_courses = Course.objects.filter(direction__direction=direction,
+        unfiltered_courses = Course.objects.filter(direction__name=direction,
                                                    bus_stop__mpk_street__exact=origin).filter(
             Q(course_type__contains='E') |
             Q(course_type__contains='D')
@@ -49,7 +49,7 @@ def get_valid_courses_between_stops(origin, destination, direction):
             searched_type = '7'
         else:
             raise WeekdaysValueError
-        unfiltered_courses = Course.objects.filter(direction__direction=direction,
+        unfiltered_courses = Course.objects.filter(direction__name=direction,
                                                    bus_stop__mpk_street__exact=origin,
                                                    course_type__contains=searched_type).order_by('departure__hour')
 
@@ -57,7 +57,6 @@ def get_valid_courses_between_stops(origin, destination, direction):
         Q(departure__hour__gt=datetime.now().hour) |
         Q(departure__hour=datetime.now().hour,
           departure__minute__gte=datetime.now().minute))
-
 
     course_lists = [result for result in filtered_by_dest(courses, origin, destination, direction)]
     if not course_lists:
@@ -67,7 +66,6 @@ def get_valid_courses_between_stops(origin, destination, direction):
         courses.sort(key=lambda l: str(l.departure))
 
     return courses
-
 
 
 class CustomLocation(object):

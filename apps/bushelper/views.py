@@ -21,18 +21,18 @@ class SearchEngineView(TemplateView):
 
     def get(self, request, **kwargs):
         form = SearchForm
-        context = {'form': form}
-        return render(request, self.template_name, context)
+        return render(request, self.template_name, {'form': form})
 
     def post(self, request):
-        search_form = SearchForm(request.POST)
-        if search_form.is_valid():
-            return self.search(request, search_form)
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            return self.search(request, form)
+        return render(request, self.template_name, {'form': form})
 
     def search(self, request, form):
         data = form.cleaned_data
         try:
-            destination = BusStop.objects.get(mpk_street=data['destination'], direction__direction=data['direction'])
+            destination = BusStop.objects.get(mpk_street=data['destination'], direction__name=data['direction'])
         except ObjectDoesNotExist:
             raise Http404
         custom_location = CustomLocation()
@@ -54,7 +54,7 @@ class SearchEngineView(TemplateView):
                 custom_location.context['directions_api'] = custom_location.get_directions('foot-walking')
                 template_name = get_template_name('walking_directions.html')
         else:
-            origin = BusStop.objects.get(mpk_street=data['origin'], direction__direction=data['direction'])
+            origin = BusStop.objects.get(mpk_street=data['origin'], direction__name=data['direction'])
             try:
                 courses = get_valid_courses_between_stops(origin, destination, data['direction'])
                 custom_location.context['courses'] = courses

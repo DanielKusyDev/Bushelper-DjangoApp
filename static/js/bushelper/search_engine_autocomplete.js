@@ -1,3 +1,8 @@
+let tags = [];
+let origin = $('#id_origin');
+let destination = $('#id_destination');
+let direction = $("#id_direction");
+
 function filterData(data) {
     tags = [];
     let full_stop_name;
@@ -23,11 +28,6 @@ function filterData(data) {
                 },
         });
 }
-
-let tags = [];
-let origin = $('#id_origin');
-let destination = $('#id_destination');
-let direction = $("#id_direction");
 
 $.ajax({
     method: "GET",
