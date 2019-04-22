@@ -1,9 +1,17 @@
+import codecs
 import os
+from configparser import RawConfigParser
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = 'auj8%!#j4*appj^fr6=fd&gon3+gr=)bzfn3-_9d_udo2#r#k#'
 
-DEBUG = True
+
+config = RawConfigParser()
+config.read_file(codecs.open(os.path.join(BASE_DIR, 'config.ini'), 'r', 'utf-8'))
+
+SECRET_KEY = config.get('GENERAL', 'SECRET_KEY')
+
+DEBUG = config.getboolean('GENERAL', 'ALLOW_DEBUG')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,8 +63,8 @@ WSGI_APPLICATION = 'dkusy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': config.get('DATABASE', 'ENGINE'),
+        'NAME': os.path.join(BASE_DIR, config.get('DATABASE', 'NAME')),
     }
 }
 
@@ -96,6 +104,9 @@ STATICFILES_DIRS = (
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+EMAIL = config.get('SMTP', 'EMAIL_ADDRESS')
+EMAIL_PASSWORD = config.get('SMTP', 'EMAIL_HOST_PASSWORD')
 
 
 REST_FRAMEWORK = {

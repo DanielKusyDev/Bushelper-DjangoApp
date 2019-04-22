@@ -5,7 +5,7 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from apps.bushelper.custom.email_management import send_email
 from apps.bushelper.custom.scrapers import FremiksScraper, MpkScraper, MpkSoup
 from apps.bushelper.models import Line, Carrier, BusStop, Course, Direction
-from django.db import connection
+from django.db import connection, transaction
 import json
 
 
@@ -84,15 +84,16 @@ def mpk_update():
                 if email_sent:
                     continue
                 email_sent = True
-                request = urlopen(static('json/emails.json'))
-                email_json = json.loads(request.read())['bus_stops_changed']
-                email_context = {'subject': email_json['subject'],
-                                 'body': email_json['body'] + '<br>' + str(line) + "<br><br>" + email_json['footer']}
-                send_email(receiver='daniel.kusy97@gmail.com', context=email_context)
+                # request = urlopen(static('json/emails.json'))
+                # email_json = json.loads(request.read())['bus_stops_changed']
+                # email_context = {'subject': email_json['subject'],
+                #                  'body': email_json['body'] + '<br>' + str(line) + "<br><br>" + email_json['footer']}
+                # send_email(receiver='daniel.kusy97@gmail.com', context=email_context)
 
 
 if __name__ == '__main__':
-    refresh_all_id()
-    Course.objects.all().delete()
-    fremiks_update()
-    mpk_update()
+    with transaction.atomic():
+        refresh_all_id()
+        Course.objects.all().delete()
+        fremiks_update()
+        mpk_update()

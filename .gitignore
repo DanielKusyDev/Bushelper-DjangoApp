@@ -1,5 +1,6 @@
-dkusy/settings/local.py
-static/json
+config.ini
+
+
 .DS_Store
 bin/
 include/
