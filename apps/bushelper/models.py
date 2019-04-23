@@ -14,24 +14,13 @@ class BusStop(models.Model):
     direction = models.ForeignKey(Direction, on_delete=models.CASCADE)
     latitude = models.FloatField()
     longitude = models.FloatField()
-    neighbours = models.ManyToManyField(to='self')
+    neighbours = models.ManyToManyField(to='self', symmetrical=False)
 
     def __str__(self):
         return '%s' % self.mpk_street
 
     class Meta:
         ordering = ['mpk_street']
-
-
-class Carrier(models.Model):
-    name = models.CharField(max_length=255)
-    website = models.CharField(max_length=127, null=True, blank=True)
-
-    class Meta:
-        ordering = ['name']
-
-    def __str__(self):
-        return self.name
 
 
 class Line(models.Model):
@@ -41,6 +30,17 @@ class Line(models.Model):
     def __str__(self):
         return self.name
 
+
+class Carrier(models.Model):
+    name = models.CharField(max_length=255)
+    website = models.CharField(max_length=127, null=True, blank=True)
+    line = models.ForeignKey(to=Line, on_delete=models.CASCADE, related_name='carrier_line')
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
 
 class Course(models.Model):
     departure = models.TimeField(null=False)

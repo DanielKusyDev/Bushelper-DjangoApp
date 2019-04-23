@@ -1,7 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView
 from rest_framework import viewsets
 
@@ -31,10 +31,7 @@ class SearchEngineView(TemplateView):
 
     def search(self, request, form):
         data = form.cleaned_data
-        try:
-            destination = BusStop.objects.get(mpk_street=data['destination'], direction__name=data['direction'])
-        except ObjectDoesNotExist:
-            raise Http404
+        destination = get_object_or_404(BusStop, mpk_street=data['destination'], direction__name=data['direction'])
         custom_location = CustomLocation()
         if data.get('coordinates'):
             closest_stop = get_closest_valid_stop(data['coordinates'], destination)

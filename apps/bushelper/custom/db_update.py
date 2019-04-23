@@ -1,6 +1,8 @@
 from urllib.request import urlopen
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.core.checks import Error
+from django.core.exceptions import ValidationError
 
 from apps.bushelper.custom.email_management import send_email
 from apps.bushelper.custom.scrapers import FremiksScraper, MpkScraper, MpkSoup
@@ -42,8 +44,10 @@ def populate(schedule, line, direction, carrier):
     for bus_stop in schedule:
         for course_type in schedule[bus_stop]:
             for departure in schedule[bus_stop][course_type]:
-                Course.objects.create(line=line, direction=direction, bus_stop=bus_stop, course_type=course_type,
-                                      departure=departure, carrier=carrier)
+                condition = departure.split(':')
+                if condition[-1] != '':
+                    Course.objects.create(line=line, direction=direction, bus_stop=bus_stop, course_type=course_type,
+                                          departure=departure, carrier=carrier)
 
 
 def fremiks_update():
@@ -77,7 +81,7 @@ def mpk_update():
                 print('--- %s Getting schedule ---' % carrier)
                 schedule = m_scraper.get_schedule()
                 direction = m_scraper.direction
-                print('--- %s Populating database --- ' % line)
+                print('--- %s Populating database --- ' % line.name)
                 schedule = {m_scraper.bus_stop: schedule}
                 populate(schedule, line, direction, carrier)
             except BusStop.DoesNotExist:

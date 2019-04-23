@@ -170,21 +170,24 @@ class MpkScraper(Scraper):
         departures = []
         shitty_mpk_programmer_condition = re.compile(r'\..')
         hours_array = np.array(table.columns)
-        minutes_array = np.array(table.values)
+        minutes_array = np.array(table.values)[0]
         for hour, minutes in zip(hours_array[1:], minutes_array[1:]):
-            if shitty_mpk_programmer_condition.search(str(hour)):
+            if shitty_mpk_programmer_condition.search(str(hour)) or (isinstance(minutes, float) and np.isnan(minutes)):
                 continue
             minutes = str(minutes).lower()
             hour = str(hour)
-            if self.direction.direction == 'lbn':
-                minutes = re.sub(r'[a-z]', '', minutes)
+            if '+' in minutes or '+' in hour:
+                continue
+            if self.direction.name == 'lbn':
+                minutes = re.sub(r'[a-zA-Z]|\.0|\.', '', minutes)
                 if len(minutes) % 2 != 0:
                     minutes = '0' + minutes
                 minutes = re.findall(r'..?', minutes)
                 for minute in minutes:
-                    if minute == '  ':
-                        minute = soup.find('b', {'class': 'najblizszy_odjazd'}).get_text()
-                    departures.append(str(hour + ':' + minute))
+                    if minute != '' and minute != 'na':
+                        if minute == '  ':
+                            minute = soup.find('b', {'class': 'najblizszy_odjazd'}).get_text()
+                        departures.append(str(hour + ':' + minute))
             else:
                 for pos in re.finditer(r'[b-z]', minutes):
                     pos = pos.start()

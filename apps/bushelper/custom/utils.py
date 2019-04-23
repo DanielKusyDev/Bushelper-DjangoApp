@@ -1,6 +1,6 @@
 import numpy as np
 
-from apps.bushelper.models import CarrierStop, CarrierStopOrder, BusStop
+from apps.bushelper.models import CarrierStop, CarrierStopOrder, BusStop, Carrier
 
 
 def replace_types_gen(types):
@@ -33,9 +33,15 @@ class SameBusStopError(Exception):
 
 
 def filtered_by_dest(courses, origin, destination, direction):
-    """Generator that filter courses. Yield only courses which goes to/through destination bus stop."""
-    carrier_stops = CarrierStop.objects.filter(direction__name=direction)
-    for cs in carrier_stops:
+    """Performs BFS to filter courses connected with origin and destination"""
+    queue = [(origin, carrier.pk, carrier.line) for carrier in Carrier.objects.all()]
+    valid_courses = []
+    while queue:
+        current_source_and_node = queue.pop()
+        for neighbour in current_source_and_node[1].neighbours.filter(direction__name=direction):
+
+    connected_bus_stops = BusStop.objects.filter(direction__name=direction)
+    for cs in connected_bus_stops:
         if cs.line:
             filtered_courses = courses.filter(carrier=cs.carrier).filter(line=cs.line)
         else:
