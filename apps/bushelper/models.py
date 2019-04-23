@@ -14,7 +14,6 @@ class BusStop(models.Model):
     direction = models.ForeignKey(Direction, on_delete=models.CASCADE)
     latitude = models.FloatField()
     longitude = models.FloatField()
-    neighbours = models.ManyToManyField(to='self', symmetrical=False)
 
     def __str__(self):
         return '%s' % self.mpk_street
@@ -26,7 +25,7 @@ class BusStop(models.Model):
 class Line(models.Model):
     name = models.CharField(max_length=8)
     url = models.URLField()
-    carrier = models.ForeignKey(to='Carrier', on_delete=models.CASCADE)
+    carrier = models.ForeignKey(to='Carrier', on_delete=models.CASCADE, related_name='carrier_line')
 
     def __str__(self):
         return self.name

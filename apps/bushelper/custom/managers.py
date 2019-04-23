@@ -54,15 +54,15 @@ def get_valid_courses_between_stops(origin, destination, direction):
                                                    course_type__contains=searched_type).order_by('departure__hour')
 
     courses = unfiltered_courses.filter(
-        Q(departure__hour__gt=datetime.now().hour) |
-        Q(departure__hour=datetime.now().hour,
+        Q(departure__hour__gt=datetime.now().hour-2) |
+        Q(departure__hour=datetime.now().hour-2,
           departure__minute__gte=datetime.now().minute))
 
-    course_lists = [result for result in filtered_by_dest(courses, origin, destination, direction)]
-    if not course_lists:
+    valid_carriers = get_valid_courses_by_bfs(courses, origin, destination, direction)
+    if not valid_courses:
         raise NoCoursesAvailableError
     else:
-        courses = [course for course_list in course_lists for course in course_list]
+        courses = [course for course_list in valid_courses for course in course_list]
         courses.sort(key=lambda l: str(l.departure))
 
     return courses
