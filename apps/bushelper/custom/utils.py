@@ -38,7 +38,7 @@ def filtered_by_dest(courses, origin, destination, direction):
     valid_courses = []
     while queue:
         current_source_and_node = queue.pop()
-        for neighbour in current_source_and_node[1].neighbours.filter(direction__name=direction):
+        # for neighbour in current_source_and_node[1].neighbours.filter(direction__name=direction):
 
     connected_bus_stops = BusStop.objects.filter(direction__name=direction)
     for cs in connected_bus_stops:

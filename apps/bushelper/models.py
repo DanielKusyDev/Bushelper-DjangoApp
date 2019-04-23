@@ -26,6 +26,7 @@ class BusStop(models.Model):
 class Line(models.Model):
     name = models.CharField(max_length=8)
     url = models.URLField()
+    carrier = models.ForeignKey(to='Carrier', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -34,13 +35,13 @@ class Line(models.Model):
 class Carrier(models.Model):
     name = models.CharField(max_length=255)
     website = models.CharField(max_length=127, null=True, blank=True)
-    line = models.ForeignKey(to=Line, on_delete=models.CASCADE, related_name='carrier_line')
 
     class Meta:
         ordering = ['name']
 
     def __str__(self):
         return self.name
+
 
 class Course(models.Model):
     departure = models.TimeField(null=False)
