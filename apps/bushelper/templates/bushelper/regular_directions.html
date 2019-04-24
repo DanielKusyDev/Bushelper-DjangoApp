@@ -1,7 +1,7 @@
-{% extends 'bushelper/templ.html' %}
+{% extends 'common/templates/index.html' %}
 {% load custom_tags %}
 {% load staticfiles %}
-{% block content %}
+{% block body %}
     <div class="container-fluid">
     <div class="row">
         <div class="card col-md-6" style="background-color: #cbcbcb">
@@ -72,9 +72,9 @@
     </div>
     </div>
 
-{% endblock content %}
+{% endblock %}
 
-{% block javascript %}
+{% block scripts %}
     <script>
         var origin_coords = "{{ origin.longtitude|stringformat:"f" }}, {{ origin.latitude|stringformat:"f" }}";
         var destination_coords = "{{ destination.longtitude|stringformat:"f" }}, {{ destination.latitude|stringformat:"f" }}";
@@ -87,4 +87,4 @@
     <script src="{% static 'js/bushelper/regular_directions.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/bushelper/search_result.js' %}"></script>
 
-{% endblock javascript %}
+{% endblock %}

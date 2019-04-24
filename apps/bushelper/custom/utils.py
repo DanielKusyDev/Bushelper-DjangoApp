@@ -32,21 +32,28 @@ class SameBusStopError(Exception):
     pass
 
 
-def get_valid_courses_by_bfs(courses, origin, destination, direction):
-    """Performs BFS to filter courses connected with origin and destination"""
-    lines = set([course.line for course in courses])
-    for line in lines:
-        pass
-
-    queue = [origin]
-    visited = {bus_stop.pk: False for bus_stop in BusStop.objects.all()}
-    while queue:
-        curr_node = queue.pop(0)
-        for neighbour in curr_node.neighbours.all():
-            if not visited[neighbour.pk]:
-                visited[neighbour.pk] = True
-
-
+def filtered_by_dest(courses, origin, destination, direction):
+    """Generator that filter courses. Yield only courses which goes to/through destination bus stop."""
+    carrier_stops = CarrierStop.objects.filter(direction__name=direction)
+    for cs in carrier_stops:
+        if cs.line:
+            filtered_courses = courses.filter(carrier=cs.carrier).filter(line=cs.line)
+        else:
+            filtered_courses = courses.filter(carrier=cs.carrier)
+        if filtered_courses:
+            order_list = CarrierStopOrder.objects.filter(carrier_stop=cs).values_list('order', flat=True)
+            origin_order = CarrierStopOrder.objects.filter(carrier_stop=cs).filter(bus_stop__mpk_street__exact=origin).values_list(
+                'order',
+                flat=True).first()
+            destination_order = CarrierStopOrder.objects.filter(carrier_stop=cs).filter(
+                bus_stop=destination).values_list(
+                'order',
+                flat=True).first()
+            order_np = np.array(order_list)
+            if origin_order is not None or destination_order is not None:
+                order_np = order_np[order_np > origin_order]
+                if destination_order in order_np:
+                    yield filtered_courses
 
 
 class Point(object):
