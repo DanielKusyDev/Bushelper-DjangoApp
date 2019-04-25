@@ -1,0 +1,9 @@
+.container-course{
+    margin-left: 20%;
+    width: 100%;
+}
+#map{
+    height: 100%;
+    background: no-repeat center;
+    position:absolute;
+}

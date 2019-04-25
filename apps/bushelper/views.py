@@ -2,6 +2,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
+from django.utils.timezone import now
+from django.views import View
 from django.views.generic import TemplateView
 from rest_framework import viewsets
 
@@ -11,23 +13,17 @@ from apps.bushelper.serializers import BusStopSerializer
 
 TEMPLATE_PREFIX = 'bushelper/templates/bushelper/'
 
-
 def get_template_name(path):
     return TEMPLATE_PREFIX+path
 
 
-class SearchEngineView(TemplateView):
-    template_name = get_template_name('search_engine.html')
+class DirectionsView(View):
 
-    def get(self, request, **kwargs):
-        form = SearchForm
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request):
-        form = SearchForm(request.POST)
+    def get(self, request):
+        form = SearchForm(request.GET)
         if form.is_valid():
             return self.search(request, form)
-        return render(request, self.template_name, {'form': form})
+        return render(request, 'bushelper/templates/bushelper/regular_directions.html', {'form': form})
 
     def search(self, request, form):
         data = form.cleaned_data
@@ -39,7 +35,7 @@ class SearchEngineView(TemplateView):
                 courses = get_valid_courses_between_stops(closest_stop, destination, data['direction'])
                 custom_location.context['courses'] = courses
                 paginator = Paginator(courses, 5)
-                page = request.POST.get('page')
+                page = request.GET.get('page')
                 custom_location.context['courses'] = paginator.get_page(page)
                 custom_location.set_essentials(origin=data['coordinates'], destination=closest_stop, direction=data['direction'])
                 custom_location.context['walking_directions_api'] = custom_location.get_directions('foot-walking')
@@ -56,7 +52,7 @@ class SearchEngineView(TemplateView):
                 courses = get_valid_courses_between_stops(origin, destination, data['direction'])
                 custom_location.context['courses'] = courses
                 paginator = Paginator(courses, 5)
-                page = request.POST.get('page')
+                page = request.GET.get('page')
                 custom_location.context['courses'] = paginator.get_page(page)
                 custom_location.set_essentials(origin=origin, destination=destination, direction=data['direction'])
                 custom_location.context['directions_api'] = custom_location.get_directions('driving-car')
@@ -64,7 +60,16 @@ class SearchEngineView(TemplateView):
             except NoCoursesAvailableError:
                 raise Http404
         context = custom_location.context
+        context['date'] = now()
         return render(request, template_name, context)
+
+
+class SearchEngineView(TemplateView):
+    template_name = get_template_name('search_engine.html')
+
+    def get(self, request, **kwargs):
+        form = SearchForm
+        return render(request, self.template_name, {'form': form})
 
 
 class BusStopViewSet(viewsets.ModelViewSet):

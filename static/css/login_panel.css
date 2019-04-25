@@ -4,11 +4,6 @@ body, html {
     background: url("/static/img/tlo-nowe.png") no-repeat;
 }
 
-.card-container.card {
-    max-width: 350px;
-    padding: 40px 40px;
-}
-
 .btn {
     font-weight: 700;
     height: 36px;
@@ -18,6 +13,10 @@ body, html {
     cursor: default;
 }
 
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+}
 
 .card {
     background-color: #F7F7F7;

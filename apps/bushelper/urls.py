@@ -10,6 +10,7 @@ router.register('bus_stops', views.BusStopViewSet, 'bus_stops')
 
 urlpatterns = [
     path('', views.SearchEngineView.as_view(), name='search_engine'),
+    path('search/', views.DirectionsView.as_view(), name='directions'),
     path('api/', include(router.urls)),
 ]
 
