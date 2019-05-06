@@ -83,15 +83,88 @@
 
 {% block scripts %}
     <script>
-        var origin_coords = "{{ origin.longtitude|stringformat:"f" }}, {{ origin.latitude|stringformat:"f" }}";
-        var destination_coords = "{{ destination.longtitude|stringformat:"f" }}, {{ destination.latitude|stringformat:"f" }}";
+        var origin_coords = "{{ origin.longitude|stringformat:"f" }}, {{ origin.latitude|stringformat:"f" }}";
+        var destination_coords = "{{ destination.longitude|stringformat:"f" }}, {{ destination.latitude|stringformat:"f" }}";
         var origin_name = "{{ origin }}";
         var destination_name = "{{ destination }}";
         var directions = "{{ directions_api|escapejs }}";
         var walking_directions = "{{ walking_directions_api|escapejs }}";
         var travel_duration = "{{ travel_duration }}";
+
+        function makeAjaxRequest(course_id){
+            $.ajax({
+                method: "GET",
+                url: "{% url 'bushelper:courses-list' %}"+course_id,
+                success: function(data){
+                    data = data['results'][0];
+                    renderHTML(data);
+                },
+                error: function (error_data) {
+                    console.log("error");
+                }
+            });
+        }
+
+
+    function renderHTML(data) {
+        let htmlString = "";
+        htmlString+='<h4>' + data['departure'] + '</h4>';
+        if(walking_directions){
+
+            let departure = data['departure'].split(':');
+            departure = [parseInt(departure[0]), parseInt(departure[1])];
+            // let time_to_leave = getTimeToLeave(departure);
+            // htmlString+='<i> Wyjdź o ' + time_to_leave.join(':') + '</i>';
+            $("#id_left_col").html(htmlString);
+            // htmlString='';
+            // htmlString+='<h4> XX:XX</h4>';
+            // $("#id_right_col").html(htmlString);
+        }
+        htmlString="<i id=\"id_circle\" class=\"fa fa-2x fa-arrow-circle-right rotate\"></i>";
+        htmlString+='<h5><i class="fas fa fa-bus"></i>' + data['carrier'] + '</h5>';
+        if(data['line'])
+            htmlString+='<h5>' + data['line'] + '</h5>';
+        $("#id_mid_col").html(htmlString);
+    }
+
+    // TODO heroku
+    {#url = 'http://127.0.0.1:8000/restapi/courses';#}
+    let course_list_item = $(".course_list_item");
+    let course_panel;
+
+
+    course_list_item.mouseover(function () {
+            $(this).css({"background-color":"#E8F1FA", "transition":"background-color 0.5s ease", "cursor": "pointer"});
+    });
+
+    course_list_item.mouseleave(function () {
+        if(!$(this).hasClass('course_panel'))
+            $(this).css({"background-color":"#f8f8f8", "transition":"background-color 0.5s ease", "cursor": ""});
+    });
+
+    $(window).ready(function() {
+        let first_li = $("#courses_list li").first();
+        first_li.css({"background-color":"#E8F1FA", "transition":"background-color 0.5s ease", "cursor": "pointer"});
+        first_li.addClass('course_panel');
+        let  first_li_id =  first_li.attr('id');
+        first_li_id =  first_li_id.split('_')[2];
+        makeAjaxRequest(first_li_id);
+    });
+
+    course_list_item.click(function () {
+        course_panel = $(".course_panel");
+        course_panel.removeClass('course_panel');
+        course_panel.addClass('course_list_item');
+        course_panel.css({"background-color":"#f8f8f8", "transition":"background-color 0.5s ease", "cursor": ""});
+        $(this).addClass('course_panel');
+        let this_id = $(this).attr('id');
+        this_id = this_id.split('_')[2];
+        makeAjaxRequest(this_id);
+    });
+
     </script>
+
     <script src="{% static 'js/bushelper/regular_directions.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/bushelper/search_result.js' %}"></script>
+
 
 {% endblock %}

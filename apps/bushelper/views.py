@@ -6,10 +6,11 @@ from django.utils.timezone import now
 from django.views import View
 from django.views.generic import TemplateView
 from rest_framework import viewsets
+from rest_framework.viewsets import ModelViewSet
 
 from apps.bushelper.forms import SearchForm
 from apps.bushelper.custom.managers import *
-from apps.bushelper.serializers import BusStopSerializer
+from apps.bushelper.serializers import BusStopSerializer, CourseSerializer
 
 TEMPLATE_PREFIX = 'bushelper/templates/bushelper/'
 
@@ -72,8 +73,14 @@ class SearchEngineView(TemplateView):
         return render(request, self.template_name, {'form': form})
 
 
-class BusStopViewSet(viewsets.ModelViewSet):
+class BusStopViewSet(ModelViewSet):
     queryset = BusStop.objects.all().order_by('pk')
     serializer_class = BusStopSerializer
     paginator = None
 
+
+class CourseViewSet(ModelViewSet):
+    serializer_class = CourseSerializer
+
+    def get_queryset(self):
+        return Course.objects.filter(pk=self.kwargs['pk'])

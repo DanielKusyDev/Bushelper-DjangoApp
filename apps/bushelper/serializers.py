@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from apps.bushelper.models import BusStop
+from apps.bushelper.models import BusStop, Course
 
 
 class BusStopSerializer(serializers.ModelSerializer):
@@ -13,17 +13,16 @@ class BusStopSerializer(serializers.ModelSerializer):
         )
 
 
+class CourseSerializer(serializers.ModelSerializer):
+    carrier = serializers.StringRelatedField()
+    bus_stop = serializers.StringRelatedField()
+    departure = serializers.StringRelatedField()
+    line = serializers.StringRelatedField()
+    direction = serializers.StringRelatedField()
 
-# class CourseSerializer(serializers.ModelSerializer):
-#     carrier = serializers.StringRelatedField()
-#     bus_stop = serializers.StringRelatedField()
-#     departure = serializers.StringRelatedField()
-#     line = serializers.StringRelatedField()
-#     direction = serializers.StringRelatedField()
-#
-#     class Meta:
-#         model = Course
-#         fields = ['pk', 'course_type', 'direction', 'line', 'carrier', 'bus_stop', 'departure']
+    class Meta:
+        model = Course
+        fields = '__all__'
 #
 #
 # class BusStopSerializer(serializers.ModelSerializer):
